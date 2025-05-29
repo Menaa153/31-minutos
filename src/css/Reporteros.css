@@ -1,0 +1,73 @@
+.reporteros-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.titulo-reporteros {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.titulo-reporteros h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.titulo-reporteros p {
+  font-size: 1.1rem;
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.reporteros {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.reportero-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.foto img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info h2 {
+  margin: 0 0 0.5rem 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.info p {
+  margin: 0.2rem 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+  .reporteros {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+  }
+
+  .reportero-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foto img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0.5rem;
+  }
+}

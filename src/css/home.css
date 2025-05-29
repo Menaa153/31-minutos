@@ -1,0 +1,109 @@
+/*html,body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}*/
+
+.home {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  align-content: center;
+}
+
+.logo-img{
+  width: 200px;
+  height: auto;
+  margin-bottom: 0;
+}
+
+.hero{
+  background: aqua;
+  color: rgb(0, 0, 0);
+  padding: 2rem 1rem;
+  text-align: center;
+  
+}
+
+.hero-buttons button{
+  margin: 0rem;
+  padding: 0.5rem 1rem;
+}
+
+.hero-link {
+  color: rgb(25, 0, 255);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  /*
+  background-color: transparent;
+  border-radius: 15px;*/
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 550;
+  transition: background-color 0.3s ease;
+}
+
+.hero-link:hover{
+  color:rgb(105, 105, 105);
+}
+
+
+.destacada, .ultimas, .especiales{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card{
+  background:white;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.img-placeholder{
+  width: 300px;
+  height: 175px;
+  background: #ccc;
+}
+
+/*
+.info{
+  flex: 1;
+}*/
+
+.news-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.especiales{
+  padding:1rem;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  text-align: start;
+  border-radius: 40px;
+}
+
+.img-placeholderes{
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background: #ccc;
+}
+
+.nota-verde-bt{
+  position: absolute;
+  color: rgb(68, 0, 255);
+  bottom: 10px;
+  right: 10px;
+  padding: 0.2rem 0.5rem;
+  border: 2px solid #020085;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+
+}

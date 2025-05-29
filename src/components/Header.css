@@ -1,0 +1,56 @@
+.navbar{
+  background-color: #808080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0px;
+  /*
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;*/
+}
+
+
+.logo{
+  height: 50px;
+  width: auto;
+  display: block;
+  cursor: pointer;
+}
+
+
+.nav-links{
+  display:flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.login-link{
+  margin-left: 180px;
+}
+
+
+.nav-links a{
+  color: white;
+  text-decoration: none;
+  padding:1rem 0.8rem;
+  border-radius: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  
+}
+
+
+/* Elimina el hover para el logo */
+.logo-link:hover {
+  background-color: transparent !important;
+  cursor: pointer; /* Puedes dejar el cursor pointer si quieres */
+}
+
+/* Mantén el hover para los demás links */
+.nav-links a:not(.logo-link):hover {
+  /*background-color: #6b6b6b;*/
+  color:rgb(48, 48, 197);
+}
