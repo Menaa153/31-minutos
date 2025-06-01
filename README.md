@@ -6,7 +6,7 @@ clonar el repositorio
 gh repo clone Menaa153/31-minutos
 
 
-instalar install
+instalar install <br>
 npm i
 
 correr proyecto en local
