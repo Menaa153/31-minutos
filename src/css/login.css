@@ -9,7 +9,7 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem; /* Espacio entre elementos */
+  gap: 0.1rem; /* espacio entre elementos */
   padding: 3rem;
   background: #808080;
   border-radius: 8px;

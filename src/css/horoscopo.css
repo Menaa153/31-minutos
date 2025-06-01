@@ -1,0 +1,38 @@
+ /* Estilo general del contenedor */
+.horoscopo-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Título principal */
+.horoscopo-container h1 {
+  text-align: center;
+  color: #8B008B;
+  margin-bottom: 30px;
+}
+
+/* Cada signo en una tarjeta */
+.signo-card {
+  background-color: #f9efff;
+  border-left: 6px solid #8B008B;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(139, 0, 139, 0.1);
+}
+
+/* Título de cada signo */
+.signo-card h2 {
+  margin: 0 0 8px 0;
+  color: #8B008B;
+}
+
+/* Texto de la predicción */
+.signo-card p {
+  margin: 0;
+  line-height: 1.6;
+}

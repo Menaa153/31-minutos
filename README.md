@@ -1,12 +1,23 @@
-# React + Vite
+# Pagina web 31 Minutos
+## el noticiero que nadie pidio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+para poder ver el proyecto
+clonar el repositorio
+gh repo clone Menaa153/31-minutos
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+instalar install
+npm i
 
-## Expanding the ESLint configuration
+correr proyecto en local
+npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+entrar al link y mirar el proyecto.
+
+
+
+git add .
+git commit -m "Tu mensaje describiendo los cambios"
+git push origin main
+
+apy key google: AIzaSyBqFk1pIAbt1yCe7Hr-WWN-jYkvsCwlon0
