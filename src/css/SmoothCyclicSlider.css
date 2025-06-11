@@ -1,0 +1,83 @@
+.smooth-cyclic-slider-container {
+  position: relative;
+  width: 90%; /* Ancho total del contenedor para 3 elementos (ej. 300px por item) */
+  height: 300px;
+  margin: 50px auto;
+  overflow: hidden; /* ¡Crucial para ocultar los elementos fuera de vista! */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+}
+
+
+/* En SmoothCyclicSlider.css */
+.slider-item:nth-child(3n+1) { background-color: #f8d7da; } /* Rojo claro */
+.slider-item:nth-child(3n+2) { background-color: #d1ecf1; } /* Azul claro */
+.slider-item:nth-child(3n+3) { background-color: #d4edda; } /* Verde claro */
+/* Puedes añadir más para los otros items si son más de 3 */
+.slider-item:nth-child(3n+4) { background-color: #fff3cd; } /* Amarillo claro */
+.slider-item:nth-child(3n+5) { background-color: #cfe2ff; } /* Azul muy claro */
+.slider-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.slider-track {
+  display: flex;
+  height: 100%;
+  /* El width del track debe ser el ancho total de *todos* los ítems renderizados */
+  width: calc(100% / var(--visible-items-count) * var(--total-rendered-items));
+  /* La transición será controlada por JS */
+}
+
+.slider-item {
+  /* Cada item debe ocupar el ancho exacto que se muestra en la ventana (1/3 del contenedor) */
+  min-width: calc(100% / var(--visible-items-count));
+  flex-shrink: 0; /* Asegura que los items no se encojan */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.slider-item:last-child {
+  border-right: none;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 28px;
+  border-radius: 4px;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.slider-button.prev {
+  left: 10px;
+}
+
+.slider-button.next {
+  right: 10px;
+}
+
+.slider-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+

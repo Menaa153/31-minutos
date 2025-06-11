@@ -9,43 +9,95 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  font-family: sans-serif;
   align-content: center;
 }
 
-.logo-img{
-  width: 200px;
-  height: auto;
-  margin-bottom: 0;
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgb(105, 130, 240);
+  padding: 2rem 1rem;
+  margin: 15px;
+  border-radius: 5px;
+  min-height:35vh;
+  overflow: hidden;
+}
+/* Contenido encima de la imagen */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 600px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.hero{
-  background: aqua;
-  color: rgb(0, 0, 0);
-  padding: 2rem 1rem;
-  text-align: center;
-  
+.textos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* CENTRADO VERTICAL */
+  align-items: flex-start; /* alineado a la izquierda */
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.textos-a {
+  font-size: 3rem;
+  margin-bottom: -15px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.textos-b {
+  font-size: 1rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0;
+  margin: 2px 0px 30px 0px;
 }
 
 .hero-buttons button{
-  margin: 0rem;
-  padding: 0.5rem 1rem;
+  background-color: rgb(16, 12, 255);
 }
 
-.hero-link {
-  color: rgb(25, 0, 255);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  /*
-  background-color: transparent;
-  border-radius: 15px;*/
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 550;
-  transition: background-color 0.3s ease;
+.hero-buttons button:hover{
+  background-color: rgb(52, 52, 185);
 }
 
-.hero-link:hover{
-  color:rgb(105, 105, 105);
+
+.logo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen como fondo */
+.logo-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+  width: 300px;
+  height: auto;
+  z-index: 0;
+}
+
+
+.seccions-h{
+  margin-left: 1rem;
 }
 
 
@@ -55,28 +107,201 @@
 }
 
 .card{
-  background:white;
+  background:rgba(255, 255, 255, 0.795);
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 1rem 1rem 0 1rem;
   display: flex;
   gap: 1rem;
+  border: 2px solid #020085;
+  border-color: black;
 }
 
 .img-placeholder{
-  width: 300px;
+  width: 175px;
   height: 175px;
-  background: #ccc;
+  background: transparent;
+  border-radius: 0px;
 }
 
-/*
+
 .info{
   flex: 1;
-}*/
+  align-items: center;
+  align-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.categoria, .descripcion{
+  font-weight:lighter;
+  color: rgb(0, 0, 0);
+  font-size: 0.9rem;
+}
+
+.autor{
+  font-style: italic;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+}
+
+
+.foto-perfil{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+.botones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.botones button {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+.boton-noticias {
+  background-color: rgb(16, 12, 255);
+}
+
+.boton-noticias:hover{
+  background-color: rgb(52, 52, 185);
+}
+
+.like-button {
+  background: transparent;
+  padding: 0;
+}
+
+.like-img {
+  width: 25px;
+  height: 25px;
+}
+
+.like-container {
+  display: flex;
+  align-items: center;
+  gap: 0px; /* espacio entre corazOn y numero */
+}
+
+.like-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+/* ultimas noticias*/
 
 .news-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
+
+.card-utlimas{
+  display: flex;
+  flex-direction: column;
+  background:rgba(255, 255, 255, 0.795);
+  padding: 0;
+  margin: 1rem 1rem 0 1rem;
+  
+  gap: 1rem;
+  border: 2px solid #020085;
+  border-color: black;
+}
+
+
+.img-placeholder-ultimas{
+  width: 100%;
+  height: 150px;
+  border: 1px solid #ccc;
+  background: transparent;
+  border-radius: 0px;
+  
+}
+
+.info-utlimas{
+  margin-left: 1rem;
+  margin-right: 1rem;
+  
+}
+
+.info-utlimas-titulo{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-bottom: 1%;
+}
+
+.info-utlimas-categoria, .info-utlimas-fecha{
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+}
+
+.info-utlimas-descripcion{
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  margin-top: 4.5%;
+  margin-bottom: 5%;
+}
+
+.info-utlimas-autor{
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  font-weight: normal;
+}
+
+.info-utlimas-bt{
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: rgb(0, 0, 0);
+}
+
+.like-container-ultimas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.like-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio entre botón e ícono */
+}
+
+.like-button-ultimas {
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.like-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+
+
+
+
 
 .especiales{
   padding:1rem;
@@ -107,3 +332,105 @@
   font-weight: bold;
 
 }
+
+
+
+/*ESPECIALES*/
+
+.slider-container {
+    width: 100%; /* Este contenedor mantiene el ancho visible del slider */
+    margin: 20px auto 20px auto;
+    position: relative;
+    overflow: hidden; /* Esto es crucial para el slider */
+    border: 0px solid green;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.slider-prueba {
+    display: flex;
+    flex-direction: row;
+  
+    width: 165.4%; /* Esto asegura que el contenedor tenga espacio para todos los divs */
+                               /* (ancho de 1 div / 3 divs visibles * 5 divs totales) */
+    height: 240px;
+    transition: transform 0.5s ease-in-out; /* Animación de deslizamiento */
+}
+
+.div-prueba-deportes {
+    background-color: rgb(255, 0, 0);
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.div-prueba-deportes-p{
+  color: black;
+  position: absolute;
+  bottom: 15px;
+  left: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.div-prueba-horoscopo{
+    background-color: rgb(255, 0, 255);
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+}
+
+.div-prueba-notaverde{
+    background-color: rgb(29, 252, 0);
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+}
+
+.div-prueba-tulioresponde{
+    background-color: rgb(224, 203, 10);
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+}
+
+.div-prueba-entrevistas{
+    background-color: rgb(252, 134, 0);
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+}
+.div-prueba {
+    flex-shrink: 0;
+    width: calc(100% / 5); /* Cada div ocupa el 1/5 del .slider-prueba */
+    height: 240px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid blue;
+
+}
+
+/* Botones de navegación */
+.slider-indicators {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider-indicators-bt{
+  background-color: transparent;
+  color: black;
+  font-size: 30px
+}
+
+
