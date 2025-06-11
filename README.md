@@ -6,7 +6,7 @@ clonar el repositorio
 gh repo clone Menaa153/31-minutos
 
 
-instalar install
+instalar install <br>
 npm i
 
 correr proyecto en local
@@ -19,7 +19,3 @@ entrar al link y mirar el proyecto.
 git add .
 git commit -m "Tu mensaje describiendo los cambios"
 git push origin main
-
-apy key google: AIzaSyBqFk1pIAbt1yCe7Hr-WWN-jYkvsCwlon0
-
-`Hola mundo xd`
