@@ -19,4 +19,3 @@ entrar al link y mirar el proyecto.
 git add .
 git commit -m "Tu mensaje describiendo los cambios"
 git push origin main
-
