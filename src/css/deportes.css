@@ -103,7 +103,7 @@
 .deportes-descripcion-c-f{
   margin: 0;
   color: white;
-  background-color: #a83232;
+  background-color: #f28b82;
   display: inline-block;
   padding: 0.3rem 0.8rem;
   border-radius: 50px;
@@ -138,12 +138,13 @@
 }
 
 .deportes-btn-d{
-  background-color: #a83232;
+  background-color: #f28b82;
   border: none;
   line-height: 0;
   padding: 1.1rem 1.2rem;
   border-radius: 15px;
   font-size: 1rem;
+  color: white;
 }
 
 

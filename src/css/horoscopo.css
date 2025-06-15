@@ -190,10 +190,11 @@
   align-items: center;
   justify-content: left;
   margin: 0px 0px 0px 0px;
+
 }
 
 .horoscopo-p-signo{
-  color: rgb(0, 0, 0);
+  color: #8B008B;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.3rem;
   margin: 0;

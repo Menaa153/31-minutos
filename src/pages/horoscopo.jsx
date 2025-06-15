@@ -87,17 +87,17 @@ export default function Horoscopo() {
   {
     nombre: 'Aries',
     fecha: '21 de marzo - 19 de abril',
-    icono: <GiAries size={50} color="black" />
+    icono: <GiAries size={50} color="#814bb0" />
   },
   {
     nombre: 'Tauro',
     fecha: '20 de abril - 20 de mayo',
-    icono: <GiTaurus size={50} color="black" />
+    icono: <GiTaurus size={50} color="#814bb0" />
   },
   {
     nombre: 'Géminis',
     fecha: '21 de mayo - 20 de junio',
-    icono: <GiGemini size={50} color="black" />
+    icono: <GiGemini size={50} color="#814bb0" />
   },
   {
     nombre: 'Cáncer',

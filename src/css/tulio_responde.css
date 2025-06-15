@@ -11,7 +11,7 @@
   align-items: start;
   justify-content: center;
   height: 300px;
-  background: linear-gradient(to right, #e7bc0d, #e7d58a);
+  background: linear-gradient(to right, #7c7a71, #c9c8c8);
   margin: 20px 50px;
   border-radius: 5px;
   padding: 2rem;
@@ -39,7 +39,7 @@
   margin-top: 10px;
 }
 .boton-hacer-pregunta {
-  background-color: #caa305;
+  background-color: #646463;
   color: white;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 0.9rem;
@@ -53,7 +53,7 @@
 }
 .formulario-wrapper {
   background-color: rgba(255, 255, 255, 0.95);
-  border: 1px solid #fbcd13;
+  border: 1px solid #7c7a71;
   border-radius: 5px;
   padding: 2rem;
   box-shadow: 7px 7px 10px rgba(148, 204, 171, 0.4);
@@ -73,7 +73,7 @@
   padding: 0.6rem 1rem;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1rem;
-  border: 1px solid #fbcd13;
+  border: 1px solid #7c7a71;
   border-radius: 4px;
 }
 .boton-enviar-container {
@@ -81,7 +81,7 @@
   justify-content: flex-end;
 }
 .boton-enviar {
-  background-color: #fbcd13;
+  background-color: #7c7a71;
   color: white;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1rem;
