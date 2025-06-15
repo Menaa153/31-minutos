@@ -1,0 +1,151 @@
+
+
+.deportes-header{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center     ;
+  height: 300px;
+  background: linear-gradient(to right, #a83232, #f28b82);
+  margin: 20px 50px 20px 50px;
+  border-radius: 5px;
+  padding: 2rem 2rem;
+}
+
+
+
+.deportes-p1{
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-weight: 700;
+
+}
+
+.deportes-p2{
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  text-align: left;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.deportes-p3{
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.8rem;
+  text-align: left;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.deportes-noticias{
+  margin: 50px 50px 20px 50px;
+  font-size: 1.5rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000000;
+}
+
+
+
+.section-deportes{
+  margin: 20px 50px 20px 50px;
+}
+
+.deportes-parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
+}
+
+
+.div-deportes{
+  display: flex;
+  flex-direction: row;
+  background:transparent;
+  padding: 1rem 1rem;
+  gap: 0rem;
+  border: 1px solid #f28b82;
+  border-radius: 5px;
+  /*border-color: #94ccab;*/
+}
+
+
+.img-deportes{
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-image: url('/public/reporteros/tulio/Tulio2.jpg'); /* o usa Tulio si usas módulos */
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;
+
+}
+
+.deportes-descripcion{
+  border: 0px solid #f28b82;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+
+}
+
+.deportes-descripcion-c-f{
+  margin: 0;
+  color: white;
+  background-color: #f28b82;
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.deportes-descripcion-t{
+  margin: 0;
+  padding: 0.3rem 0.2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.deportes-descripcion-d{
+  margin: 0;
+  padding: 0.3rem 0.2rem;
+  font-size: 1rem;
+
+}
+
+
+.deportes-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deportes-descripcion-a{
+  font-style: italic;
+}
+
+.deportes-btn-d{
+  background-color: #f28b82;
+  border: none;
+  line-height: 0;
+  padding: 1.1rem 1.2rem;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: white;
+}
+
+
+

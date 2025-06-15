@@ -1,21 +1,33 @@
-# Pagina web 31 Minutos
-## el noticiero que nadie pidio
+# Página web 31 Minutos
+![Logo de 31 Minutos](src/assets/logo.png) 
+## _El noticiero que nadie pidió_  
 
-para poder ver el proyecto
-clonar el repositorio
-gh repo clone Menaa153/31-minutos
+Para poder ver el proyecto:  
+Clonar el siguiente repositorio: gh repo clone Menaa153/31-minutos
+
+
+Abrir proyecto en su editor de codigo e installar npm install.
+En consola correr  
 
 
 instalar install <br>
+
 npm i
 
-correr proyecto en local
+Luego correr proyecto en local  
 npm run dev
 
-entrar al link y mirar el proyecto.
+Entrar al link generado y mirar el proyecto.
 
 
+Autors - G18
+- Cristian Imbacuan Mena - cimbacuan@unal.edu.co
+- Santiago Alvarez Martinez - salvarezma@unal.edu.co
+- Fransisco Micolta Vivas - fmicolta@unal.edu.co
+- Albeiro Burbano Tobar - aburbanot@unal.edu.co
 
-git add .
-git commit -m "Tu mensaje describiendo los cambios"
-git push origin main
+-- Correcciones para segunda entrega  
+¿Cómo está planteado el apoyo de IA? ¿Qué IA se va a usar?  
+¿Qué información es válida para el login?
+
+

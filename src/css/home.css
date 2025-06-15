@@ -9,101 +9,514 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  font-family: sans-serif;
   align-content: center;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.logo-img{
-  width: 200px;
-  height: auto;
-  margin-bottom: 0;
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(to right, #4a7deb, #99b2ea);
+  padding: 2rem 2rem;
+  margin: 20px 50px 20px 50px;
+  border-radius: 5px;
+  height: 300px;
+  min-height:40vh;
+  overflow: hidden;
+}
+/* Contenido encima de la imagen */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 600px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.hero{
-  background: aqua;
-  color: rgb(0, 0, 0);
-  padding: 2rem 1rem;
-  text-align: center;
-  
+.textos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* CENTRADO VERTICAL */
+  align-items: flex-start; /* alineado a la izquierda */
+  color: rgb(255, 255, 255);
+}
+
+
+.textos-a {
+  font-size: 3rem;
+  margin-bottom: -15px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.textos-b {
+  font-size: 1rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0;
+  margin: 2px 0px 30px 0px;
 }
 
 .hero-buttons button{
-  margin: 0rem;
+  background-color: #1255e6;
+  border: none;
   padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 10px;
 }
 
-.hero-link {
-  color: rgb(25, 0, 255);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  /*
-  background-color: transparent;
-  border-radius: 15px;*/
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 550;
-  transition: background-color 0.3s ease;
+.hero-buttons button:hover{
+  background-color: rgb(52, 52, 185);
 }
 
-.hero-link:hover{
-  color:rgb(105, 105, 105);
-}
-
-
-.destacada, .ultimas, .especiales{
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.card{
-  background:white;
-  padding: 1rem;
-  margin: 1rem 0;
-  display: flex;
-  gap: 1rem;
-}
-
-.img-placeholder{
+/* Imagen como fondo */
+.logo-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
   width: 300px;
-  height: 175px;
-  background: #ccc;
+  height: auto;
+  z-index: 0;
 }
 
-/*
+/*destacada*/
+.card{
+  background: transparent;
+  padding: 1rem;
+  margin: 20px 50px 20px 50px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #99b2ea;
+}
+
+.noticia-destacada-perfil {
+  background-image: url('/public/reporteros/tulio/Tulio2.jpg'); /* o usa Tulio si usas módulos */
+  background-size: cover;
+  background-position: center;
+  margin-right: 30px;
+  margin-left: 5px;
+  width: 200px;     /* o el tamaño que quieras para la "foto de perfil" */
+  height: 200px;
+  border-radius: 50%; /* para que sea redonda */
+}
+
+
+
+
 .info{
   flex: 1;
-}*/
+  align-items: center;
+  align-content: center;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0rem 0rem;
+}
+
+.categoria-destacada{
+  margin: 0;
+  color: white;
+  background-color: #4a7deb;
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.titulo{
+  padding: 0rem 0.1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.descripcion{
+  color: rgb(0, 0, 0);
+  font-size: 0.9rem;
+  margin: 0;
+  margin-bottom: 0px;
+  margin-bottom: 15px;
+  padding: 0rem 0.1rem;
+}
+.autor{
+  font-style: italic;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0rem 0.1rem;
+}
+
+
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  padding: 0rem 0.1rem;
+}
+
+x
+.botones button {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+.boton-noticias {
+  background-color: #4a7deb;
+}
+
+.boton-noticias:hover{
+  background-color: rgb(52, 52, 185);
+}
+
+.like-button {
+  background: transparent;
+  padding: 0;
+}
+
+.like-img {
+  width: 25px;
+  height: 25px;
+}
+
+.like-container {
+  display: flex;
+  align-items: center;
+  gap: 0px; /* espacio entre corazOn y numero */
+}
+
+.like-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+}
+
+
+.ultimas, .especiales{
+  margin: 20px 50px 20px 50px;
+}
+
+
+/* ultimas noticias*/
+
+.seccions-h{
+    margin: 20px 50px 20px 50px;
+}
 
 .news-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
 }
 
-.especiales{
-  padding:1rem;
+
+
+.card-utlimas{
+  display: flex;
+  flex-direction: column;
+  background:rgba(255, 255, 255, 0.795);
+  padding: 0;
+  margin: 0rem 0px 0rem 0px;
+  gap: 0rem;
+
+}
+
+
+.img-placeholder-ultimas{
+  height: 150px;
+  border: 1px solid #99b2ea;
+  background: transparent;
+  border-radius: 0px;
+  padding: 1rem 1rem;
+  
+}
+
+.info-utlimas{
+  height: auto;
+  border: 1px solid #99b2ea;
+  border-radius: 5px;
+  padding: 0rem 1.5rem;
+  box-shadow: 7px 7px 10px rgba(148, 204, 171, 0.4);
+  font-family: 'Noto Sans KR', sans-serif;
+  
+}
+
+.info-utlimas-titulo{
+  font-size: 1.5rem;
+  font-weight: bold;
   color: rgb(0, 0, 0);
-  font-weight: bold;
-  text-align: start;
-  border-radius: 40px;
+  margin-bottom: 1%;
 }
 
-.img-placeholderes{
-  position: relative;
+.info-utlimas-categoria, .info-utlimas-fecha{
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+}
+
+.info-utlimas-descripcion{
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  margin-top: 4.5%;
+  margin-bottom: 5%;
+}
+
+.info-utlimas-autor{
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  font-weight: normal;
+}
+
+.info-utlimas-bt{
   width: 100%;
-  height: 120px;
-  background: #ccc;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #4a7deb;
+  border: none;
 }
 
-.nota-verde-bt{
-  position: absolute;
-  color: rgb(68, 0, 255);
-  bottom: 10px;
-  right: 10px;
-  padding: 0.2rem 0.5rem;
-  border: 2px solid #020085;
-  background-color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: bold;
+.like-container-ultimas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
+.like-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio entre botón e ícono */
+}
+
+.like-button-ultimas {
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.like-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ESPECIALES*/
+
+.slider-container {
+     /* Este contenedor mantiene el ancho visible del slider */
+    margin: 20px 50px 20px 50px;
+    position: relative;
+    overflow: hidden; /* Esto es crucial para el slider */
+    border: 0px solid green;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.slider-prueba {
+    display: flex;
+    flex-direction: row;
+    width: 165.4%; /* Esto asegura que el contenedor tenga espacio para todos los divs */
+                               /* (ancho de 1 div / 3 divs visibles * 5 divs totales) */
+    height: 240px;
+    transition: transform 0.5s ease-in-out; /* Animación de deslizamiento */
+}
+
+.div-prueba {
+    flex-shrink: 0;
+    width: calc(100% / 5); /* Cada div ocupa el 1/5 del .slider-prueba */
+    height: 240px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*border: 1px solid blue;*/
+
+}
+
+
+
+.div-prueba-deportes {
+  background-image: url('/fondos/deportes.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+  position: relative;
+}
+
+.div-prueba-deportes-p{
+  color: rgb(255, 255, 255);
+  position: relative;
+  bottom: 15px;
+  left: 25px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+
+
+.div-prueba-horoscopo{
+  background-image: url('/fondos/horoscopo.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+  align-items: start;
+  justify-content: start;
+  text-align: left;
+}
+.div-prueba-horoscopo-p{
+  color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 15px;
+  left: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+.div-prueba-notaverde {
+  background-image: url('/fondos/nota-verde.jpeg');
+  background-size: cover;
+  background-position: center;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+}
+
+
+.div-prueba-notaverde-p{
+  color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 15px;
+  left: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+.div-prueba-tulioresponde{
+  background-image: url('/fondos/tulioresponde.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+}
+
+.div-prueba-entrevistas{
+  background-image: url('/fondos/entrevistaslocas.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+}
+
+
+/* Botones de navegación */
+.slider-indicators-left {
+    position: absolute;
+    width: 40px;
+    top: 50%;
+    left: 10px;
+    display: flex;
+    justify-content: start;
+    transform: translateY(-50%);
+}
+.slider-indicators-right {
+    position: absolute;
+    width: 40px;
+    top: 50%;
+    right: 20px;
+    display: flex;
+    justify-content: end;
+    transform: translateY(-50%);
+}
+
+.slider-indicators-bt{
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 30px
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close-modal-btn {
+  background-color: #341eff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
 }

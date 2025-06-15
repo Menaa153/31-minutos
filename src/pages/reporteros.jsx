@@ -1,63 +1,55 @@
 import "../css/Reporteros.css";
 
+
 export default function Reporteros() {
   const reporteros = [
       {
         id: 1,
         nombre: "Tulio Triviño",
         bio: "Conductor principal de 31 Minutos. Vanidoso, despistado y encantador a su manera.",
-        foto: "https://static.wikia.nocookie.net/31minutos/images/c/c2/31minutos3.png",
+        foto: '/public/reporteros/tulio/Tulio2.jpg',
+
       },
       {
         id: 2,
         nombre: "Juan Carlos Bodoque",
         bio: "Reportero estrella, conocido por su sarcasmo e informes profundos como 'La Nota Verde'.",
-        foto: "https://randomuser.me/api/portraits/men/23.jpg",
+        foto: "/public/reporteros/juan carlos bodoque/Bodoque2.jpg",
       },
       {
         id: 3,
         nombre: "Policarpo Avendaño",
         bio: "Encargado de la sección de espectáculos. Amante del canto y el espectáculo.",
-        foto: "https://randomuser.me/api/portraits/men/23.jpg",
+        foto: "/public/reporteros/policarpo/Policarpo1.jpg",
       },
       {
         id: 4,
         nombre: "Mario Hugo",
         bio: "Reportero amable y muy ingenuo. Siempre busca el lado tierno de las noticias.",
-        foto: "https://randomuser.me/api/portraits/men/23.jpg",
+        foto: "/public/reporteros/mario hugo/MarioHugo1.jpg",
       },
       {
         id: 5,
         nombre: "Patana Tufillo Triviño",
         bio: "Sobrina de Tulio y joven reportera con una visión crítica y sensible.",
-        foto: "https://randomuser.me/api/portraits/men/23.jpg",
+        foto: "/public/reporteros/patana/Patana1.jpg",
       },
       {
         id: 6,
-        nombre: "Calcetín con Rombos Man",
-        bio: "Superhéroe defensor de los calcetines abandonados. Ícono de justicia textil.",
-        foto: "https://randomuser.me/api/portraits/men/23.jpg",
-      },
-      {
-        id: 7,
         nombre: "Juanín Juan Harry",
         bio: "Productor general del noticiero. Nervioso pero dedicado, mantiene todo funcionando.",
-        foto: "https://static.wikia.nocookie.net/31minutos/images/1/1a/31minutos5.png",
+        foto: "/public/reporteros/juanin juan harry/Juanin2.webp",
+
       },
-      {
-      id: 8,
-      nombre: "Ana Gómez",
-      bio: "Especialista en reportajes culturales.",
-      foto: "https://randomuser.me/api/portraits/men/23.jpg",
-    },
     // Agrega hasta 10 reporteros
   ];
 
   return (
     <div className="reporteros-container">
       <div className="titulo-reporteros">
-        <h1>Reporteros</h1>
-        <p>Conoce a los que hacen posible este noticiero innecesario.</p>
+        <h1>Nuestros Reporteros</h1>
+        <p> Conoce al increible equipo que hace posible 31 Minutos, 
+            el noticiero más innecesario de la Televisión.</p>
       </div>
       <div className="reporteros">
         {reporteros.map(({ id, nombre, edad, bio, foto }) => (
@@ -65,9 +57,11 @@ export default function Reporteros() {
             <div className="foto">
               <img src={foto} alt={`Foto de ${nombre}`} />
             </div>
-            <div className="info">
+            <div className="info-reportero">
               <h2>{nombre}</h2>
-              <p>{bio}</p>
+              <p className="tipo-repo">Reportero principal</p>
+              <p className="biografia-repo">{bio}</p>
+              {/*<button className="bt-ver-perfil">Ver perfil completo</button>*/}
             </div>
           </div>
         ))}

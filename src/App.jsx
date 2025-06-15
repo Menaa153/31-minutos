@@ -16,6 +16,7 @@ import Login from './pages/login';
 import AdminPanell from './pages/panel_admin.jsx';
 import ReporteroPanel from './pages/panel_reportero';
 import Footer from './components/Footer.jsx';
+import MultiItemSlider from './pages/borrador.jsx';
 import NewsPage from './pages/NesPages.jsx';
 import Scraping from './pages/Scraping.jsx';
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminPanell />} />
           <Route path="/reportero" element={<ReporteroPanel />} />
+
         </Routes>
       </main>
       {!hideFooter && <Footer />}

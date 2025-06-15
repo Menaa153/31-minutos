@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'YD Gothic';
+  src: url('/fonts/YDGothic 160 Pro.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+.contenedor-entrevistas {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.encabezado-entrevistas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center     ;
+  height: 300px;
+  background: linear-gradient(to right, #d17000, #fcbf7a);
+  margin: 20px 50px 20px 50px;
+  border-radius: 5px;
+  padding: 2rem 2rem;
+}
+
+
+.entrevistas-h1 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+.entrevistas-p1 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  color: white;
+}
+.boton-ver-entrevistas {
+  background-color: #d6770a;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.boton-ver-entrevistas:hover {
+  background-color: #d6740c;
+}
+.contenido-entrevistas {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.entrevistas-h2{
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+  font-weight: bold;
+  color: #333;
+}
+.tarjeta-entrevista {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  background: #fff;
+  border: 1px solid #f28b82;
+  border-radius: 10px;
+  box-shadow: 6px 6px 12px rgba(242, 139, 130, 0.3);
+  overflow: hidden;
+}
+.imagen-entrevista {
+  flex: 1;
+  max-width: 45%;
+  min-width: 250px;
+  height: auto;
+}
+.imagen-entrevista img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.info-entrevista {
+  flex: 2;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.etiqueta-fecha {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+.categoria {
+  background-color: #f7931e;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  color: white;
+}
+.fecha {
+  align-self: center;
+}
+.titulo-entrevista {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #222;
+  margin-top: 0.5rem;
+}
+.descripcion-entrevista {
+  font-size: 1rem;
+  color: #444;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.autor-entrevista {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: transparent;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .tarjeta-entrevista {
+    flex-direction: column;
+  }
+  .imagen-entrevista {
+    max-width: 100%;
+  }
+  .info-entrevista {
+    padding: 1rem;
+  }
+  .contenido-entrevistas {
+    padding: 1rem;
+  }
+  .encabezado-entrevistas {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}

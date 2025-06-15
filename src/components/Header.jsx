@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 import './Header.css';
 
@@ -7,16 +8,16 @@ export default function Header() {
   return (
     <header className="navbar">
       <nav className="nav-links">
-        <Link to="/" className='logo-link'>
+        <NavLink to="/" className='logo-NavLink'>
           <img src={logo} alt="Logo 31" className="logo" />
-        </Link>
-        <Link to="/reporteros">Reporteros</Link>
-        <Link to="/nota-verde">Nota Verde</Link>
-        <Link to="/horoscopo">Horóscopo</Link>
-        <Link to="/deportes">Deportes</Link>
-        <Link to="/tulio-responde">Tulio Responde</Link>
-        <Link to="/entrevistas-locas">Entrevistas Locas</Link>
-        <Link to="/login" className='login-link'>Login</Link>
+        </NavLink>
+        <NavLink to="/reporteros">Reporteros</NavLink>
+        <NavLink to="/nota-verde">Nota Verde</NavLink>
+        <NavLink to="/horoscopo">Horóscopo</NavLink>
+        <NavLink to="/deportes">Deportes</NavLink>
+        <NavLink to="/tulio-responde">Tulio Responde</NavLink>
+        <NavLink to="/entrevistas-locas">Entrevistas Locas</NavLink>
+        <NavLink to="/login" className='login-NavLink'>Login</NavLink>
       </nav>
     </header>
   );
