@@ -1,89 +1,150 @@
-/* deportes.css */
-.deportes-banner {
-  background-color: #e80000;
-  color: white;
-  padding: 2rem;
-  text-align: left;
-}
 
-.deportes-banner h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
 
-.deportes-banner p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.deportes-banner button {
-  background-color: black;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  cursor: pointer;
-}
-
-.noticias-container {
-  padding: 2rem;
-}
-
-.noticias-grid {
+.deportes-header{
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between; /* para separarlas bien */
-}
-
-.noticia-card {
-  background-color: #f2f2f2;
-  padding: 1.5rem;
-  border-radius: 8px;
-  width: 48%; /* ajusta este valor si ves que se bajan */
-  box-sizing: border-box;
-  border: 1px solid #000000;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center     ;
+  height: 300px;
+  background: linear-gradient(to right, #a83232, #f28b82);
+  margin: 20px 50px 20px 50px;
+  border-radius: 5px;
+  padding: 2rem 2rem;
 }
 
 
-.noticia-card .categoria {
-  background-color: red;
+
+.deportes-p1{
   color: white;
-  padding: 0.2rem 0.6rem;
-  display: inline-block;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  font-size: 0.8rem;
-}
-
-.noticia-card h3 {
-  margin: 0.5rem 0;
-}
-
-.noticia-card .autor {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-weight: 700;
+
 }
 
-.noticia-card button {
-  background-color: red;
+.deportes-p2{
   color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  text-align: left;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.deportes-p3{
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.8rem;
+  text-align: left;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.deportes-noticias{
+  margin: 50px 50px 20px 50px;
+  font-size: 1.5rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000000;
+}
+
+
+
+.section-deportes{
+  margin: 20px 50px 20px 50px;
+}
+
+.deportes-parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
+}
+
+
+.div-deportes{
+  display: flex;
+  flex-direction: row;
+  background:transparent;
+  padding: 1rem 1rem;
+  gap: 0rem;
+  border: 1px solid #f28b82;
+  border-radius: 5px;
+  /*border-color: #94ccab;*/
+}
+
+
+.img-deportes{
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-image: url('/public/reporteros/tulio/Tulio2.jpg'); /* o usa Tulio si usas módulos */
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;
+
+}
+
+.deportes-descripcion{
+  border: 0px solid #f28b82;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+
+}
+
+.deportes-descripcion-c-f{
+  margin: 0;
+  color: white;
+  background-color: #a83232;
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.deportes-descripcion-t{
+  margin: 0;
+  padding: 0.3rem 0.2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.deportes-descripcion-d{
+  margin: 0;
+  padding: 0.3rem 0.2rem;
+  font-size: 1rem;
+
+}
+
+
+.deportes-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deportes-descripcion-a{
+  font-style: italic;
+}
+
+.deportes-btn-d{
+  background-color: #a83232;
   border: none;
-  padding: 0.4rem 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
+  line-height: 0;
+  padding: 1.1rem 1.2rem;
+  border-radius: 15px;
+  font-size: 1rem;
 }
 
-.hazaña-banner {
-  background-color: #e80000;
-  color: white;
-  padding: 1.5rem;
-  margin-top: 2rem;
-}
 
-.hazaña-banner h3 {
-  font-size: 1.3rem;
-  font-weight: bold;
-}
+

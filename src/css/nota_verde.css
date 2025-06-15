@@ -1,25 +1,184 @@
+@font-face {
+  font-family: 'YD Gothic';
+  src: url('/fonts/YDGothic 160 Pro.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+.nota-verde{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center     ;
+    height: 300px;
+    background: linear-gradient(to right, #437d5b, #94ccab);
+    margin: 20px 50px 20px 50px;
+    border-radius: 5px;
+    padding: 2rem 2rem;
+}
+
+.nt-vd-icono{
+    color: white;
+    font-size: 2.2rem;
+
+}
+
+.nota-verde-p1{
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+}
+
+.nota-verde-p2{
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    text-align: left;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nota-verde-buttons{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    
+}
+
+.nota-verde-buttons-a{
+    background-color: #16a04a;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.7rem;
+    padding: 0rem 1.8rem;
+    
+}
+
+.nota-verde-buttons-b{
+    background-color: #73a286;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.7rem;
+}
+
+.h2-reportajes{
+    margin: 40px 50px 20px 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.5rem;
+}
+
+
+
+.section-reportajes{
+    margin: 20px 50px 20px 50px;
+}
 
 .parent {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 8px;
-}
-    
-.div1, .div2, .div3, .div4, .div5, .div6 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    gap: 25px;
 }
 
+.div-reportajes{
+  display: flex;
+  flex-direction: column;
+  background:rgba(255, 255, 255, 0.795);
+  padding: 0;
+  margin: 0rem 0px 0rem 0px;
+  gap: 0rem;
+  border: 0px solid #94ccab;
+  /*border-color: #94ccab;*/
+}
 
 
+.img-reportajes{
 
-.section-reportajes{
-    width: 90%;
-    display: flex;
-    flex-direction: column;
+  height: 150px;
+  border: 1px solid #94ccab;
+  background: transparent;
+  border-radius: 0px;
+  padding: 1rem 1rem;
+  
+}
 
-    margin: 20px auto 20px auto;
+.info-reportajes{
+  height: auto;
+  border: 1px solid #94ccab;
+  border-radius: 5px;
+  padding: 0rem 1.5rem;
+  /*box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);  sombra hacia la derecha */
+  box-shadow: 7px 7px 10px rgba(148, 204, 171, 0.4);
+
+  font-family: 'Noto Sans KR', sans-serif;
+  
+}
+
+.info-reportajes-titulo{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-bottom: 1%;
+}
+
+.info-reportajes-categoria, .info-reportajes-fecha{
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+}
+
+.info-reportajes-descripcion{
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  margin-top: 4.5%;
+  margin-bottom: 5%;
+}
+
+.info-reportajes-autor{
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  font-weight: normal;
+}
+
+.info-reportajes-bt{
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #16a04a;
+}
+
+.like-container-reportajes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.like-group-reportajes {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio entre botón e ícono */
+}
+
+.like-button-reportajes {
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.like-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
 }

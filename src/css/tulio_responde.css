@@ -1,141 +1,99 @@
+@font-face {
+  font-family: 'YD Gothic';
+  src: url('/fonts/YDGothic 160 Pro.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 .contenedor-tulio {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  height: 300px;
+  background: linear-gradient(to right, #e7bc0d, #e7d58a);
+  margin: 20px 50px;
+  border-radius: 5px;
+  padding: 2rem;
 }
-
-.encabezado-tulio {
-    background-color: #f1c40f;
-    color: white;
-    padding: 2rem;
-    width: 95%;
-    max-width: 1400px;
-    text-align: left;
-    box-sizing: border-box;
-    margin: 2rem auto;
-    border-radius: 8px;
+.titulo-tulio {
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
 }
-
-.encabezado-tulio h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+.descripcion-tulio {
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  text-align: left;
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-
-.encabezado-tulio p {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    max-width: 600px;
+.botones-tulio {
+  display: flex;
+  margin-top: 10px;
 }
-
 .boton-hacer-pregunta {
-    background-color: #a67c00;
-    color: white;
-    border: none;
-    padding: 0.6rem 1rem;
-    cursor: pointer;
+  background-color: #caa305;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.4rem 1.8rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
-
-.formulario-tulio {
-    width: 95%;
-    max-width: 1400px;
-    margin: 2rem 0;
-    padding: 2.5rem;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    background-color: white;
+.seccion-formulario-tulio {
+  margin: 40px 50px 20px 50px;
 }
-
+.formulario-wrapper {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #fbcd13;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 7px 7px 10px rgba(148, 204, 171, 0.4);
+}
 .fila-formulario {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.8rem;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
-
-.fila-formulario label {
-    flex-shrink: 0;
-    flex-grow: 0;
-    width: 150px;
-    font-weight: bold;
-    color: #333;
-    text-align: right;
-    box-sizing: border-box;
-    line-height: 1.2;
+.label-formulario {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
-
-.fila-formulario .input-wrapper {
-    flex: 1 1 0%;
-    
-    min-width: 1000px;
-    
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
+.input-wrapper input {
+  width: 95%;
+  padding: 0.6rem 1rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  border: 1px solid #fbcd13;
+  border-radius: 4px;
 }
-
-.fila-formulario input {
-    width: 100%; 
-    padding: 1rem;
-    background-color: #e2e4e7;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    min-width: 0; 
-    height: auto;
-    line-height: 1.2;
-    vertical-align: middle;
+.boton-enviar-container {
+  display: flex;
+  justify-content: flex-end;
 }
-
 .boton-enviar {
-    background-color: #c49e00;
-    color: white;
-    border: none;
-    padding: 0.9rem 2.5rem;
-    cursor: pointer;
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
-    border-radius: 4px;
+  background-color: #fbcd13;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 1.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-
-/* Estilos responsive */
-@media (max-width: 600px) {
-    .encabezado-tulio {
-        width: 95%;
-        margin: 1rem auto;
-        padding: 1.5rem;
-    }
-
-    .fila-formulario {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-    }
-
-    .fila-formulario label {
-        width: 100%;
-        text-align: left;
-        margin-bottom: 0.5rem;
-    }
-
-    .fila-formulario .input-wrapper {
-        width: 100%;
-        min-width: unset;
-    }
-
-    .fila-formulario input {
-        border-radius: 4px;
-    }
-
-    .boton-hacer-pregunta {
-        width: 100%;
-        text-align: center;
-    }
-
-    .boton-enviar {
-        width: 100%;
-    }
+.info-extra-tulio {
+  margin: 30px 50px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
 }

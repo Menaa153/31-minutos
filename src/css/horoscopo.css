@@ -36,3 +36,216 @@
   margin: 0;
   line-height: 1.6;
 }
+
+
+
+/* de aqui en adelante */
+
+.horoscopo-header{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center     ;
+  height: 300px;
+  background: linear-gradient(to right, #814bb0, #c5a2e4);
+  margin: 20px 50px 20px 50px;
+  border-radius: 5px;
+  padding: 2rem 2rem;
+}
+
+.nt-vd-icono{
+  color: white;
+  font-size: 2.2rem;
+
+}
+
+.horoscopo-p1{
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-weight: 700;
+
+}
+
+.horoscopo-p2{
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  text-align: left;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.horoscopo-p3{
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.8rem;
+  text-align: left;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.horoscopo-mensaje-poli{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  height: 200px;
+  background: transparent;
+  margin: 0px 50px 0px 50px;
+  border-radius: 5px;
+  padding: 1rem 0rem;
+}
+
+
+.horoscopo-mensaje-poli-img-fondo-perfil {
+  background-image: url('/public/reporteros/tulio/Tulio2.jpg'); /* o usa Tulio si usas módulos */
+  background-size: cover;
+  background-position: center;
+  margin-right: 30px;
+  margin-left: 5px;
+  width: 200px;     /* o el tamaño que quieras para la "foto de perfil" */
+  height: 200px;
+  border-radius: 50%; /* para que sea redonda */
+}
+
+.horoscopo-title-msm-poli{
+  font-size: 1.3rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000000;
+  font-weight: 600;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.horoscopo-descrip-msm-poli{
+  font-size: 0.9rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000000;
+  font-style: italic;
+}
+
+.horoscopo-diarios{
+  margin: 0px 50px 0px 50px;
+  font-size: 1rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000000;
+}
+
+
+
+
+
+
+.section-horoscopos{
+  margin: 20px 50px 20px 50px;
+}
+
+.horoscopo-parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 25px;
+}
+
+
+.div-horoscopo{
+  display: flex;
+  flex-direction: column;
+  background:transparent;
+  padding: 1rem 1rem;
+  margin: 0rem 0px 0rem 0px;
+  gap: 0rem;
+  border: 1px solid #c5a2e4;
+  border-radius: 5px;
+  /*border-color: #94ccab;*/
+}
+
+.img-horoscopo-signo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  border: 0px solid #94ccab;
+  background: transparent;
+  border-radius: 0px;
+}
+
+.img-horoscopo-signo-icon{
+  height: 70px;
+  width: 70px;
+  border: 0px solid #94ccab;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 0px 0px 0px 0px;
+}
+
+.horoscopo-p-signo{
+  color: rgb(0, 0, 0);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.3rem;
+  margin: 0;
+  
+}
+
+.horoscopo-p-fecha{
+  color: rgb(122, 118, 118);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+
+
+.horoscopo-descripcion{
+  border: 0px solid #94ccab;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+
+}
+
+.horoscopo-descripcion-p{
+  margin: 0;
+}
+
+.horoscopo-descripcion-2{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+.horoscopo-descripcion-2-1{
+  display: flex;
+  flex-direction: column;
+}
+ .horoscopo-descripcion-2-2{
+  display: flex;
+  flex-direction: column;
+}
+
+.horoscopo-descripcion-2-p1{
+  margin: 0;
+  color: rgb(0, 0, 0);
+}
+
+.horoscopo-descripcion-2-p2 {
+  margin: 0;
+  color: rgb(122, 118, 118);
+}

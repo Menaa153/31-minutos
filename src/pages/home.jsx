@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-
+import { useState } from 'react';
 
 import logo from '../assets/logo.png';
 import like from '../assets/corazon.png';
@@ -87,6 +87,22 @@ export default function Home() {
     navigate('/deportes');
   };
   
+  const handleNotaVerdeClick = () => {
+    navigate('/nota-verde');
+  };
+
+  const handleHoroscopoClick = () => {
+    navigate('/horoscopo');
+  };
+
+  const handleTulioRespondeClick = () => {
+    navigate('/tulio-responde');
+  };
+
+  const handleEntrevistasLocasClick = () => {
+    navigate('/entrevistas-locas');
+  };
+
   const handleScrollToNoticias = () => {
     const section = document.getElementById('ultimas');
     if (section) {
@@ -105,6 +121,20 @@ export default function Home() {
     }
 
     ];
+
+  const [selectedNoticia, setSelectedNoticia] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = (noticia) => {
+    setSelectedNoticia(noticia);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setSelectedNoticia(null);
+    setShowModal(false);
+  };
+
   return (
     <div className="home">
       {/* HERO SECTION */}
@@ -121,21 +151,17 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* NOTICIA DESTACADA */}
       <section className="destacada">
         <h2 className='seccions-h'>Noticia Destacada</h2>
         <div className="card">
-          <div className="img-placeholder">
-            <img src={Tulio} alt="Noticia destacada" className='foto-perfil'/>
-          </div>
+          <div className='noticia-destacada-perfil'></div>
           <div className="info">
-            <span className="categoria">{noticias[0].category}, {noticias[0].date}</span> <br />
+            <span className="categoria-destacada">{noticias[0].category}, {noticias[0].date}</span>
             {/*<span className="fecha">{noticias[0].date}</span><br />*/}
-            <span className='titulo'>{noticias[0].title}</span> <br />
-            <span className='descripcion'>{noticias[0].description}</span> <br />
+            <span className='titulo'>{noticias[0].title}</span>
+            <span className='descripcion'>{noticias[0].description}</span>
             <span className='autor'>{noticias[0].autor}</span>
-            <br />
             <div className='botones'>
               <button className='boton-noticias'>Leer más</button>
               <div className='like-container'>
@@ -150,8 +176,8 @@ export default function Home() {
       </section>
 
       {/* ÚLTIMAS NOTICIAS */}
-      <section className="ultimas" id='ultimas'>
-        <h2 className='seccions-h'>Últimas Noticias</h2>
+      <h2 className='seccions-h' id='ultimas'>Últimas Noticias</h2>
+      <section className="ultimas">
         <div className="news-grid">
           {[1, 2, 3].map((n) => (
             <div key={n} className="card-utlimas">
@@ -160,7 +186,7 @@ export default function Home() {
                   <p className='info-utlimas-titulo'>{noticias[0].title}</p>
                   <span className="info-utlimas-categoria">{noticias[0].category}, </span>
                   <span className="info-utlimas-fecha">{noticias[0].date}</span>
-                  <p className='info-utlimas-descripcion'>{noticias[0].description}</p>
+                  <p className='info-utlimas-descripcion'>{noticias[0].description.split(" ").slice(0, 24).join(" ")}...</p>
                   <div className='like-container-ultimas'>
                     <p className='info-utlimas-autor'>{noticias[0].autor}</p>
                     <div className="like-group">
@@ -170,7 +196,9 @@ export default function Home() {
                       <span className='like-count'>15</span>
                     </div>
                   </div>
-                  <button className='info-utlimas-bt'>Leer más</button>
+                  <button className='info-utlimas-bt' onClick={() => openModal(noticias[0])}>
+                    Leer más
+                  </button>
                 </div>
             </div>
           ))}
@@ -222,22 +250,35 @@ export default function Home() {
             {/*<div className='div-prueba-deportes2'></div>*/}
           </div>
           <div className="div-prueba">
-            <div className='div-prueba-horoscopo'></div>
+            <button onClick={handleNotaVerdeClick} className='div-prueba-notaverde'>
+              <p>Nota verde, donde cuidamos el medio ambiente</p>
+
+            </button>
           </div>
           <div className="div-prueba">
-            <div className='div-prueba-notaverde'></div>
+            <button onClick={handleHoroscopoClick} className='div-prueba-horoscopo'>
+              <p>Horoscopo de la semana</p>
+              <p className='p-horoscopo'>Horoscopo</p>
+            </button>
           </div>
           <div className="div-prueba">
-            <div className='div-prueba-tulioresponde'></div>
+            <button onClick={handleTulioRespondeClick} className='div-prueba-tulioresponde'>
+              <p>HOY PERDIO EL BICHO</p>
+            </button>
           </div>
           <div className="div-prueba">
-            <div className='div-prueba-entrevistas'></div>
+            <button onClick={handleEntrevistasLocasClick} className='div-prueba-entrevistas'>
+              <p>HOY PERDIO EL BICHO</p>
+            </button>
           </div>
         </div>
-        <div className="slider-indicators">
+
+        <div className="slider-indicators-left">
           <button className='slider-indicators-bt' ref={prevBtnRef}>
             <FontAwesomeIcon icon={faAngleLeft} />
           </button>
+          </div>
+          <div className="slider-indicators-right">
           <button className='slider-indicators-bt' ref={nextBtnRef}>
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
@@ -245,7 +286,21 @@ export default function Home() {
       </section>
 
 
+    {showModal && selectedNoticia && (
+      <div className="modal-overlay" onClick={closeModal}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <h2>{selectedNoticia.title}</h2>
+          <p className="modal-category">{selectedNoticia.category}, {selectedNoticia.date}</p>
+          <p className="modal-description">{selectedNoticia.description}</p>
+          <p className="modal-author">{selectedNoticia.autor}</p>
+          <button className="close-modal-btn" onClick={closeModal}>Cerrar</button>
+        </div>
+      </div>
+    )}
+
 
     </div>
+
+    
   );
 }
