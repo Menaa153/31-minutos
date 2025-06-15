@@ -5,14 +5,20 @@
 Para poder ver el proyecto:  
 Clonar el siguiente repositorio: gh repo clone Menaa153/31-minutos
 
+
 Abrir proyecto en su editor de codigo e installar npm install.
 En consola correr  
+
+
+instalar install <br>
+
 npm i
 
 Luego correr proyecto en local  
 npm run dev
 
 Entrar al link generado y mirar el proyecto.
+
 
 Autors - G18
 - Cristian Imbacuan Mena - cimbacuan@unal.edu.co
@@ -23,3 +29,5 @@ Autors - G18
 -- Correcciones para segunda entrega  
 ¿Cómo está planteado el apoyo de IA? ¿Qué IA se va a usar?  
 ¿Qué información es válida para el login?
+
+

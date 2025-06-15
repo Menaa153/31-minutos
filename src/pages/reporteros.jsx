@@ -8,6 +8,7 @@ export default function Reporteros() {
         nombre: "Tulio Triviño",
         bio: "Conductor principal de 31 Minutos. Vanidoso, despistado y encantador a su manera.",
         foto: '/public/reporteros/tulio/Tulio2.jpg',
+
       },
       {
         id: 2,
@@ -38,6 +39,7 @@ export default function Reporteros() {
         nombre: "Juanín Juan Harry",
         bio: "Productor general del noticiero. Nervioso pero dedicado, mantiene todo funcionando.",
         foto: "/public/reporteros/juanin juan harry/Juanin2.webp",
+
       },
     // Agrega hasta 10 reporteros
   ];
