@@ -70,6 +70,7 @@
   color: #333;
   font-size: 14px;
   font-weight: 600;
+
   width: 100%;
   max-width: 300px;
   text-align: left;
@@ -105,6 +106,43 @@
   text-decoration: underline;
 }
 
+=======
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+}
+
+.input-group-31 input {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input-group-31 input:focus {
+  outline: none;
+  border-color: #e30613;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: #e30613;
+  text-decoration: none;
+  margin-top: 5px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+
 .remember-me {
   display: flex;
   align-items: center;
@@ -135,6 +173,26 @@
   margin: 0 auto 20px auto;
   display: block;
   transition: background-color 0.3s;
+
+
+}
+
+.btn-login-31:hover {
+  background-color: #c00511;
+}
+
+.back-to-home {
+  display: block;
+  text-align: center;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-to-home:hover {
+  color: #e30613;
+  text-decoration: underline;
+
 }
 
 .btn-login-31:hover {
