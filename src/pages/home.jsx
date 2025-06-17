@@ -80,26 +80,32 @@ export default function Home() {
 
 
   const handleReporterosClick = () => {
+    window.scrollTo(0, 0);
     navigate('/reporteros');
   };
 
   const handleDeportesClick = () => {
+    window.scrollTo(0, 0);
     navigate('/deportes');
   };
   
   const handleNotaVerdeClick = () => {
+    window.scrollTo(0, 0);
     navigate('/nota-verde');
   };
 
   const handleHoroscopoClick = () => {
+    window.scrollTo(0, 0);
     navigate('/horoscopo');
   };
 
   const handleTulioRespondeClick = () => {
+    window.scrollTo(0, 0);
     navigate('/tulio-responde');
   };
 
   const handleEntrevistasLocasClick = () => {
+    window.scrollTo(0, 0);
     navigate('/entrevistas-locas');
   };
 
@@ -160,10 +166,10 @@ export default function Home() {
             <span className="categoria-destacada">{noticias[0].category}, {noticias[0].date}</span>
             {/*<span className="fecha">{noticias[0].date}</span><br />*/}
             <span className='titulo'>{noticias[0].title}</span>
-            <span className='descripcion'>{noticias[0].description}</span>
+            <span className='descripcion'>{noticias[0].description.split(" ").slice(0, 24).join(" ")}...</span>
             <span className='autor'>{noticias[0].autor}</span>
             <div className='botones'>
-              <button className='boton-noticias'>Leer más</button>
+              <button className='boton-noticias' onClick={() => openModal(noticias[0])}>Leer más</button>
               <div className='like-container'>
                 <button className="like-button">
                   <img src={like} alt="like" className="like-img" />
@@ -181,7 +187,9 @@ export default function Home() {
         <div className="news-grid">
           {[1, 2, 3].map((n) => (
             <div key={n} className="card-utlimas">
-              <div className="img-placeholder-ultimas"></div>
+              <div className="img-placeholder-ultimas">
+                <img src='/reporteros/bodoque/Bodoque5.jpg' className='img-reportajes-img' alt="Tulio Triviño" />
+              </div>
                 <div className="info-utlimas">
                   <p className='info-utlimas-titulo'>{noticias[0].title}</p>
                   <span className="info-utlimas-categoria">{noticias[0].category}, </span>
@@ -205,70 +213,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECCIONES ESPECIALES 
-      <section className="especiales">
-        <h2>Secciones Especiales</h2>
-          <div className="nota verde">
-            Nota verde
-            <div className="img-placeholderes">
-              <button className='nota-verde-bt'>Leer más</button>
-            </div>
-          </div>
-          <div className='horoscopo'>
-            Horoscopo
-            <div className="img-placeholderes">
-              <button className='nota-verde-bt'>Leer más</button>
-            </div>
-          </div>
-          <div className='deportes'>
-            Deportes
-            <div className="img-placeholderes">
-              <button className='nota-verde-bt'>Leer más</button>
-            </div>
-          </div>
-          <div className='tulio-responde'>
-            Tulio responde
-            <div className="img-placeholderes">
-              <button className='nota-verde-bt'>Leer más</button>
-            </div>
-          </div>
-          <div className='entrevistas-locas'>
-            Entrevistas locas
-            <div className="img-placeholderes">
-              <button className='nota-verde-bt'>Leer más</button>
-            </div>
-          </div>
-      </section>*/}
+      {/* SECCIONES ESPECIALES */}
       <h2 className='seccions-h'>Secciones Especiales</h2>
       <section className="slider-container">
         <div className="slider-prueba" ref={sliderRef}>
           <div className="div-prueba">
             <button onClick={handleDeportesClick} className='div-prueba-deportes'>
-              <p>HOY PERDIO EL BICHO</p>
+              <p className='div-prueba-deportes-centro'>Las últimas novedades sobre los deportistas más extravagantes</p>
               <p className='div-prueba-deportes-p'>Deportes</p>
             </button>
             {/*<div className='div-prueba-deportes2'></div>*/}
           </div>
           <div className="div-prueba">
             <button onClick={handleNotaVerdeClick} className='div-prueba-notaverde'>
-              <p>Nota verde, donde cuidamos el medio ambiente</p>
-
+              <p className='div-prueba-deportes-centro'>Nota verde, donde cuidamos el medio ambiente</p>
+              <p className='div-prueba-deportes-p'>Nota Verde</p>
             </button>
           </div>
           <div className="div-prueba">
             <button onClick={handleHoroscopoClick} className='div-prueba-horoscopo'>
-              <p>Horoscopo de la semana</p>
-              <p className='p-horoscopo'>Horoscopo</p>
+              <p className='div-prueba-deportes-centro'>Las predicciones astrologicas mas disparatadas y divertidas de la semana, 
+                por Policarpio Avendaño.</p>
+              <p className='div-prueba-deportes-p'>Horoscopo</p>
             </button>
           </div>
           <div className="div-prueba">
             <button onClick={handleTulioRespondeClick} className='div-prueba-tulioresponde'>
-              <p>HOY PERDIO EL BICHO</p>
+              <p className='div-prueba-deportes-centro'>Envía tus preguntas para que Tulio te responda. Las más interesantes
+                 y útiles podrán ser respondidas en nuestro próximo programa.</p>
+              <p className='div-prueba-deportes-p'>Tulio Responde</p>
             </button>
           </div>
           <div className="div-prueba">
             <button onClick={handleEntrevistasLocasClick} className='div-prueba-entrevistas'>
-              <p>HOY PERDIO EL BICHO</p>
+              <p className='div-prueba-deportes-centro'>A veces nuestros reporteros le preguntan a las personas qué opinan sobre diferentes temas. 
+                Aquí tenemos una recopilación de las mejores respuestas.</p>
+              <p className='div-prueba-deportes-p'>Entrevistas Locas</p>
             </button>
           </div>
         </div>

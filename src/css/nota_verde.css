@@ -56,18 +56,19 @@
     
 }
 
-.nota-verde-buttons-a{
+.nota-verde-buttons-header1, .nota-verde-buttons-header2{
     background-color: #16a04a;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 0.7rem;
-    padding: 0rem 1.8rem;
+    padding: 0.5rem 1.7rem;
+    border: none;
+    color: white;
+    cursor: pointer;
     
 }
 
-.nota-verde-buttons-b{
+.nota-verde-buttons-header2{
     background-color: #73a286;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 0.7rem;
 }
 
 .h2-reportajes{
@@ -102,13 +103,23 @@
 
 
 .img-reportajes{
-
-  height: 150px;
+  height: 200px;
   border: 1px solid #94ccab;
   background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   border-radius: 0px;
-  padding: 1rem 1rem;
+  padding: 0;
   
+}
+
+.img-reportajes-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0%;
 }
 
 .info-reportajes{
@@ -150,10 +161,14 @@
 }
 
 .info-reportajes-bt{
+  font-family: 'Noto Sans KR', sans-serif;
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
   background-color: #16a04a;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 .like-container-reportajes {
@@ -181,4 +196,73 @@
   font-size: 14px;
   font-weight: bold;
   color: #333;
+}
+
+
+.nota-verde-ultimomsm{
+  display: flex;
+  flex-direction: row;
+  margin: 20px 50px 20px 50px;
+  background-color: #437d5b;
+}
+
+.nota-verde-ultimomsm-div{
+  width: 50%;
+  text-align: justify;
+  margin: 10px 10px 10px 10px;
+}
+
+
+
+.nota-verde-ultimomsm-txt{
+  margin: 0;
+  padding: 1.5rem 1.5rem;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.nota-verde-ultimomsm-img{
+  width: 50%;
+  margin: 10px 10px 10px 10px;
+}
+
+.img-nota-verde-img{
+  width: 100%;
+  height: 300px;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close-modal-btn-nota-verde {
+  background-color: #079b49;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
 }

@@ -102,47 +102,47 @@ export default function Horoscopo() {
   {
     nombre: 'Cáncer',
     fecha: '21 de junio - 22 de julio',
-    icono: <GiCancer size={50} color="black" />
+    icono: <GiCancer size={50} color="#814bb0" />
   },
   {
     nombre: 'Leo',
     fecha: '23 de julio - 22 de agosto',
-    icono: <GiLeo size={50} color="black" />
+    icono: <GiLeo size={50} color="#814bb0" />
   },
   {
     nombre: 'Virgo',
     fecha: '23 de agosto - 22 de septiembre',
-    icono: <GiVirgo size={50} color="black" />
+    icono: <GiVirgo size={50} color="#814bb0" />
   },
   {
     nombre: 'Libra',
     fecha: '23 de septiembre - 22 de octubre',
-    icono: <GiLibra size={50} color="black" />
+    icono: <GiLibra size={50} color="#814bb0" />
   },
   {
     nombre: 'Escorpio',
     fecha: '23 de octubre - 21 de noviembre',
-    icono: <GiScorpio size={50} color="black" />
+    icono: <GiScorpio size={50} color="#814bb0" />
   },
   {
     nombre: 'Sagitario',
     fecha: '22 de noviembre - 21 de diciembre',
-    icono: <GiSagittarius size={50} color="black" />
+    icono: <GiSagittarius size={50} color="#814bb0" />
   },
   {
     nombre: 'Capricornio',
     fecha: '22 de diciembre - 19 de enero',
-    icono: <GiCapricorn size={50} color="black" />
+    icono: <GiCapricorn size={50} color="#814bb0" />
   },
   {
     nombre: 'Acuario',
     fecha: '20 de enero - 18 de febrero',
-    icono: <GiAquarius size={50} color="black" />
+    icono: <GiAquarius size={50} color="#814bb0" />
   },
   {
     nombre: 'Piscis',
     fecha: '19 de febrero - 20 de marzo',
-    icono: <GiPisces size={50} color="black" />
+    icono: <GiPisces size={50} color="#814bb0" />
   }];
 
 

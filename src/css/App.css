@@ -3,15 +3,25 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif; /* Asumí que la usas en todo el sitio */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #ffffff; /* opcional: un fondo base */
 }
 
 .main-content {
   flex: 1;
+  padding: 1rem; /* mejora espaciado en pantallas pequeñas */
 }
-
