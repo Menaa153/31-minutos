@@ -10,7 +10,7 @@ export default function EntrevistasLocas() {
           <p className="entrevistas-p1">
             A veces nuestros reporteros le preguntan a las personas qué opinan sobre diferentes temas. Aquí tenemos una recopilación de las mejores respuestas.
           </p>
-          <button className="boton-ver-entrevistas">Ver entrevistas</button>
+          {/*<button className="boton-ver-entrevistas">Ver entrevistas</button>*/}
         </div>
       </header>
 

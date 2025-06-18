@@ -25,58 +25,69 @@ export default function Home() {
   const prevBtnRef = useRef(null);
   const nextBtnRef = useRef(null);
 
-  useEffect(() => {
-    const sliderPrueba = sliderRef.current;
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
+useEffect(() => {
+  const sliderPrueba = sliderRef.current;
+  const prevBtn = prevBtnRef.current;
+  const nextBtn = nextBtnRef.current;
 
-    if (!sliderPrueba || !prevBtn || !nextBtn) return;
+  if (!sliderPrueba || !prevBtn || !nextBtn) return;
 
-    const totalDivs = sliderPrueba.querySelectorAll('.div-prueba').length;
-    const divsToShow = 3;
-    let currentIndex = 0;
+  const totalDivs = sliderPrueba.querySelectorAll('.div-prueba').length;
 
-    const slideWidth = 100 / totalDivs;
+  // para slider, 3 div y mover 20px si la pantalla es mayor a 1100px
+  //mostrar 2 div y mover 50px si pantalla es menor que 1100px
+  // y mostrar 1 div y avanzar 100px si es menor a 768opx
+  let divsToShow = 3;
+  let moveAmount = 20;
 
-    function updateSliderPosition() {
-      const offset = -currentIndex * slideWidth;
-      sliderPrueba.style.transform = `translateX(${offset}%)`;
+  if (window.innerWidth < 768) {
+    divsToShow = 1;
+    moveAmount = 100;
+  } else if (window.innerWidth < 1100) {
+    divsToShow = 2;
+    moveAmount = 50;
+  }
+
+  let currentIndex = 0;
+
+  function updateSliderPosition() {
+    const offset = -(currentIndex * moveAmount);
+    sliderPrueba.style.transform = `translateX(${offset}%)`;
+  }
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = totalDivs - divsToShow;
     }
-
-    const handlePrev = () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = totalDivs - divsToShow;
-      }
-      updateSliderPosition();
-    };
-
-    const handleNext = () => {
-      if (currentIndex < totalDivs - divsToShow) {
-        currentIndex++;
-      } else {
-        currentIndex = 0;
-      }
-      updateSliderPosition();
-    };
-
-    prevBtn.addEventListener('click', handlePrev);
-    nextBtn.addEventListener('click', handleNext);
-
-    // atoavance cada 4 segundos
-    const intervalId = setInterval(() => {
-      handleNext();
-    }, 5000);
-
     updateSliderPosition();
+  };
 
-    return () => {
-      prevBtn.removeEventListener('click', handlePrev);
-      nextBtn.removeEventListener('click', handleNext);
-      clearInterval(intervalId); // limpia el intervalo al desmontar
-    };
-  }, []);
+  const handleNext = () => {
+    if (currentIndex < totalDivs - divsToShow) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+    updateSliderPosition();
+  };
+
+  prevBtn.addEventListener('click', handlePrev);
+  nextBtn.addEventListener('click', handleNext);
+
+  const intervalId = setInterval(() => {
+    handleNext();
+  }, 5000);
+
+  updateSliderPosition();
+
+  return () => {
+    prevBtn.removeEventListener('click', handlePrev);
+    nextBtn.removeEventListener('click', handleNext);
+    clearInterval(intervalId);
+  };
+}, []);
 
 
   const handleReporterosClick = () => {
@@ -188,7 +199,7 @@ export default function Home() {
           {[1, 2, 3].map((n) => (
             <div key={n} className="card-utlimas">
               <div className="img-placeholder-ultimas">
-                <img src='/reporteros/bodoque/Bodoque5.jpg' className='img-reportajes-img' alt="Tulio Triviño" />
+                <img src='/reporteros/bodoque/Bodoque5.jpg' className='img-foto-ultima-img' alt="Tulio Triviño" />
               </div>
                 <div className="info-utlimas">
                   <p className='info-utlimas-titulo'>{noticias[0].title}</p>

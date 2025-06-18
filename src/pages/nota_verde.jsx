@@ -10,26 +10,24 @@ import Tulio from '../assets/Tulio2.jpg';
 
 
 export default function NotaVerde() {
-  const navigate = useNavigate(); // <-- Inicializa el hook aquí
+
+  const navigate = useNavigate();
 
   const handleReporterosClick = () => {
     navigate('/reporteros');
   };
-    const noticias = [
-    {
-      id: 1,
-      title: 'Lionel Messi lidera histórica remontada del Inter Miami',
-      description: 'En un partido inolvidable, Lionel Messi marcó dos goles y dio una asistencia para que el Inter Miami venciera 4-3 al LA Galaxy, tras ir perdiendo 0-3 en el primer tiempo. Con esta actuación, Messi reafirma su influencia en la Major League Soccer.',
-      category: 'Deportes',
-      date: '2025-06-06',
-      autor: 'Juan Carlos Bodoque',
-    }
 
-    ];
+  const noticias = [
+  {
+    id: 1,
+    title: 'Lionel Messi lidera histórica remontada del Inter Miami',
+    description: 'En un partido inolvidable, Lionel Messi marcó dos goles y dio una asistencia para que el Inter Miami venciera 4-3 al LA Galaxy, tras ir perdiendo 0-3 en el primer tiempo. Con esta actuación, Messi reafirma su influencia en la Major League Soccer.',
+    category: 'Deportes',
+    date: '2025-06-06',
+    autor: 'Juan Carlos Bodoque',
+  }];
   
 
-
-  
   const handleScrollToNoticias = () => {
     const section = document.getElementById('reportajes');
     if (section) {
@@ -53,6 +51,7 @@ export default function NotaVerde() {
   return (
     <div>
 
+      {/* banner header */}
       <section>
         <div className='nota-verde'>
           <p className='nota-verde-p1'> <LuLeaf className='nt-vd-icono' /> Nota Verde</p>
@@ -65,6 +64,9 @@ export default function NotaVerde() {
           </div>
         </div> 
       </section>
+
+      {/* noticias de nota verde */}
+
       <h2 className='h2-reportajes' id='reportajes'>Reportajes de Nota Verde</h2>
       <section className='section-reportajes' >
         <div className="parent">
@@ -93,6 +95,7 @@ export default function NotaVerde() {
         </div>
       </section>
 
+      {/* banner al final de la pagina */}
       <div className='nota-verde-ultimomsm'>
         <div className='nota-verde-ultimomsm-div'>
           <p className='nota-verde-ultimomsm-txt'>
@@ -104,12 +107,10 @@ export default function NotaVerde() {
             florecen en esperanza. <br /><br />
             ¡Únete a nosotros en la misión de cuidar nuestro planeta!
           </p>
-          
         </div>
         <div className='nota-verde-ultimomsm-img'>
           <img src='/fondos/medioambiente2.jpg' className='img-nota-verde-img' alt="medioambiente" />
         </div>
-
       </div>
 
       {showModal && selectedNoticia && (
@@ -122,7 +123,7 @@ export default function NotaVerde() {
             <button className="close-modal-btn-nota-verde" onClick={closeModal}>Cerrar</button>
           </div>
         </div>
-    )}
+      )}
     </div>
   );
 }

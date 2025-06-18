@@ -21,10 +21,9 @@
   justify-content: flex-start;
   background: linear-gradient(to right, #4a7deb, #99b2ea);
   padding: 2rem 2rem;
-  margin: 20px 50px 20px 50px;
+  margin: 1.5rem 3vw;
   border-radius: 5px;
-  height: 300px;
-  min-height:40vh;
+  height: 300px;  
   overflow: hidden;
 }
 /* Contenido encima de la imagen */
@@ -88,16 +87,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.1;
-  width: 300px;
+  width: 20vw;
   height: auto;
   z-index: 0;
+  max-width: 100%;
 }
 
 /*destacada*/
 .card{
   background: transparent;
   padding: 1rem;
-  margin: 20px 50px 20px 50px;
+  margin: 1.5rem 3vw;
   display: flex;
   align-items: center;
   border: 1px solid #99b2ea;
@@ -109,9 +109,10 @@
   background-position: center;
   margin-right: 30px;
   margin-left: 5px;
-  width: 200px;     /* o el tamaño que quieras para la "foto de perfil" */
-  height: 200px;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%; /* para que sea redonda */
+  max-width: 100%;
 }
 
 
@@ -219,14 +220,14 @@
 
 
 .ultimas, .especiales{
-  margin: 20px 50px 20px 50px;
+  margin: 1.5rem 3vw;
 }
 
 
 /* ultimas noticias*/
 
 .seccions-h{
-    margin: 20px 50px 20px 50px;
+    margin: 1.5rem 3vw;
 }
 
 .news-grid{
@@ -256,11 +257,18 @@
   
 }
 
+.img-foto-ultima-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 .info-utlimas{
   height: auto;
   border: 1px solid #99b2ea;
   border-radius: 5px;
-  padding: 0rem 1.5rem;
+  padding: 0 1rem;
   box-shadow: 7px 7px 10px rgba(148, 204, 171, 0.4);
   font-family: 'Noto Sans KR', sans-serif;
   
@@ -347,7 +355,7 @@
 
 .slider-container {
      /* Este contenedor mantiene el ancho visible del slider */
-    margin: 20px 50px 20px 50px;
+    margin: 1.5rem 3vw;
     position: relative;
     overflow: hidden; /* Esto es crucial para el slider */
     border: 0px solid green;
@@ -362,14 +370,14 @@
     flex-direction: row;
     width: 165.4%; /* Esto asegura que el contenedor tenga espacio para todos los divs */
                                /* (ancho de 1 div / 3 divs visibles * 5 divs totales) */
-    height: 240px;
+    height: 30vh;
     transition: transform 0.5s ease-in-out; /* Animación de deslizamiento */
 }
 
 .div-prueba {
     flex-shrink: 0;
     width: calc(100% / 5); /* Cada div ocupa el 1/5 del .slider-prueba */
-    height: 240px;
+    height: 35vh;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -397,6 +405,8 @@
   padding: 1rem;
   cursor: pointer;
 }
+
+
 
 /* Texto centrado */
 .div-prueba-deportes-centro {
@@ -523,9 +533,9 @@
 /* Botones de navegación */
 .slider-indicators-left {
     position: absolute;
-    width: 40px;
+    width: 2.5rem;
+    left: 1.2rem;
     top: 50%;
-    left: 10px;
     display: flex;
     justify-content: start;
     transform: translateY(-50%);
@@ -533,9 +543,9 @@
 }
 .slider-indicators-right {
     position: absolute;
-    width: 40px;
+    width: 2.5rem;
+    right: 1.6rem;
     top: 50%;
-    right: 20px;
     display: flex;
     justify-content: end;
     transform: translateY(-50%);
@@ -584,3 +594,127 @@
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  /* HERO */
+  .hero {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    height: 240px;
+    margin: 10px 20px;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .textos-a {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .textos-b {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-buttons button{
+font-size: 0.7rem;
+}
+
+  /* CARD DESTACADA */
+  .card {
+    flex-direction: column;
+    margin: 10px 20px;
+    text-align: center;
+  }
+
+  .noticia-destacada-perfil {
+    margin: 0 auto 1rem auto;
+  }
+
+  .info {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* GRID DE ÚLTIMAS NOTICIAS */
+  .news-grid {
+    grid-template-columns: 1fr;
+    margin: 10px 20px;
+  }
+
+  .card-utlimas {
+    flex-direction: column;
+  }
+
+  .img-placeholder-ultimas {
+    height: 200px;
+  }
+
+  .img-foto-ultima-img{
+    height: 200px;
+    border-radius: 5px;
+  }
+
+  .info-utlimas {
+    padding: 1rem;
+  }
+
+  /* SLIDER */
+  .slider-prueba {
+
+    width: 100%; /* 5 divs x 100% cada uno */
+    height: 100%;
+  }
+
+  .div-prueba {
+    width: calc(100% / 1);; /* Un div visible a la vez */
+    height: 100%;
+  }
+
+  .slider-indicators-left,
+  .slider-indicators-right {
+    display: none;
+  }
+
+  /* MODAL */
+  .modal-content {
+    width: 95%;
+    max-height: 85vh;
+  }
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .slider-prueba {
+    width: 100%; /* 5 divs * 50% cada uno (2 visibles) */
+    height: 100%;
+  }
+
+  .div-prueba {
+    width: 50%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .slider-prueba {
+    width: 165.4%; /* Ajustado para 5 divs y 3 visibles */
+    height: 100%;
+  }
+
+  .div-prueba {
+    width: calc(100% / 5);
+    height: 100%;
+  }
+}

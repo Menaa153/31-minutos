@@ -17,7 +17,7 @@
   width: auto;
   display: block;
   cursor: pointer;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* Menú toggle visible solo en móvil */
@@ -50,18 +50,36 @@
   color: rgb(68, 68, 68);
 }
 
+
+.botones-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem; /* Espaciado horizontal */
+}
+
+
+
 /* RESPONSIVE: colapsar menú en móvil */
 @media (max-width: 768px) {
+  .botones-header {
+    width: 100%;
+    justify-content: space-between;
+  }
   .menu-toggle {
     display: block;
   }
 
-
   .nav-links {
-    width: 100%;
-    flex-direction: column;
+    position: absolute; /* o 'fixed' si quieres que quede siempre visible al hacer scroll */
+    top: 50px; /* ajusta según la altura de tu header */
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 999;
     display: none;
-    margin-top: 0.5rem;
+    flex-direction: column;
+    padding: 1rem;
   }
 
   .nav-links.active {
@@ -70,7 +88,7 @@
 
   .nav-links a {
     padding: 0.5rem 0;
-    width: 100%;
-    text-align: center;
+    width: 95%;
+    text-align: left;
   }
 }

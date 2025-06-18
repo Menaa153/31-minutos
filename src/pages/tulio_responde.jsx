@@ -21,7 +21,7 @@ export default function TulioResponde() {
             Envía tus preguntas para que Tulio te responda. Las más interesantes y útiles podrán ser respondidas en nuestro próximo programa.
           </p>
           <div className="botones-tulio">
-            <button className="boton-hacer-pregunta">Hacer Pregunta</button>
+            {/*<button className="boton-hacer-pregunta">Hacer Pregunta</button>*/}
           </div>
         </div>
       </section>

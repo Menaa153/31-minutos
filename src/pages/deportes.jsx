@@ -3,7 +3,7 @@ import '../css/deportes.css';
 
 const Deportes = () => {
 
-    const noticias = [
+  const noticias = [
     {
       id: 1,
       titulo: 'Lionel Messi lidera histórica remontada del Inter Miami',
@@ -11,10 +11,20 @@ const Deportes = () => {
       categoria: 'Futbol',
       fecha: '2025-06-06',
       autor: 'Tulio Triviño',
-    }
+    }];
+  
+  const [selectedNoticia, setSelectedNoticia] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
-    ];
+  const openModal = (noticia) => {
+    setSelectedNoticia(noticia);
+    setShowModal(true);
+  };
 
+  const closeModal = () => {
+    setSelectedNoticia(null);
+    setShowModal(false);
+  };
   return (
     <div>
 
@@ -42,10 +52,10 @@ const Deportes = () => {
               <div className="deportes-descripcion">
                 <p className='deportes-descripcion-c-f'>{noticias[0].categoria}, {noticias[0].fecha}</p>
                 <p className='deportes-descripcion-t'>{noticias[0].titulo}</p>
-                <p className='deportes-descripcion-d'>{noticias[0].descripcion}</p>
+                <p className='deportes-descripcion-d'>{noticias[0].descripcion.split(" ").slice(0, 24).join(" ")}...</p>
                 <div className='deportes-div'>
                   <p className='deportes-descripcion-a'>{noticias[0].autor}</p>
-                  <button className='deportes-btn-d'>Leer mas</button>
+                  <button className='deportes-btn-d' onClick={() => openModal(noticias[0])}>Leer mas</button>
                 </div> 
               </div>
             
@@ -55,6 +65,19 @@ const Deportes = () => {
       <div className="hazaña-banner">
         <h3>La hazaña de la semana</h3>
       </div>
+
+      {showModal && selectedNoticia && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>{selectedNoticia.titulo}</h2>
+            <p className="modal-category">{selectedNoticia.categoria}, {selectedNoticia.fecha}</p>
+            <p className="modal-description">{selectedNoticia.descripcion}</p>
+            <p className="modal-author">{selectedNoticia.autor}</p>
+            <button className="close-modal-btn-deportes" onClick={closeModal}>Cerrar</button>
+          </div>
+        </div>
+      )}
+
     </div>  
   );
 };
