@@ -37,7 +37,7 @@
 
 .admin-tabs .tab.active,
 .admin-tabs .tab:hover {
-  background-color: #e30613;
+  background-color: #0066ff;
   color: white;
 }
 
@@ -72,7 +72,7 @@
 
 .panel-card h3 {
   margin-top: 0;
-  color: #e30613;
+  color: #0066ff;
   font-size: 1.2rem;
   padding-bottom: 0.8rem;
   border-bottom: 1px solid #eee;
@@ -99,7 +99,7 @@
 }
 
 .form button {
-  background-color: #e30613;
+  background-color: #0066ff;
   color: white;
   border: none;
   padding: 0.8rem;
@@ -110,7 +110,7 @@
 }
 
 .form button:hover {
-  background-color: #c00511;
+  background-color: #0066ff;
 }
 
 .news-list {
@@ -136,17 +136,14 @@
 }
 
 .view-all {
-  color: #e30613;
+  color: #0066ff;
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
   margin-top: 1rem;
 }
 
-.stats-card {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .stat-item {
   display: flex;
@@ -155,67 +152,70 @@
   border-bottom: 1px solid #eee;
 }
 
-.stat-item span {
-  color: #666;
+.erase-button {
+float: 'right';
+color: #e30613;
+cursor: 'pointer' 
 }
 
-.report-button {
-  background: none;
-  border: 1px solid #e30613;
-  color: #e30613;
-  padding: 0.6rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: auto;
-  align-self: flex-start;
-  transition: all 0.3s;
-}
+@media (max-width: 600px) {
+  .admin-header h1 {
+    font-size: 24px;
+  }
 
-.report-button:hover {
-  background-color: #e30613;
-  color: white;
-}
+  .admin-header p {
+    font-size: 14px;
+  }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .admin-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
 
-.footer-info p {
-  margin: 0.3rem 0;
-}
+  .admin-tabs .tab {
+    flex: 1 1 auto;
+    font-size: 13px;
+    padding: 8px 12px;
+    min-width: 100px;
+  }
 
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
+  .admin-main {
+    padding: 1rem;
+  }
 
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-
-.footer-links a:hover {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
   .panel-columns {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* una sola columna en móviles */
   }
-  
-  .footer-content {
+
+  .panel-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .panel-card h3 {
+    font-size: 1rem;
+  }
+
+  .form input,
+  .form select,
+  .form textarea,
+  .form button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .news-meta {
+    font-size: 0.85rem;
+  }
+
+  .view-all {
+    font-size: 0.95rem;
+  }
+
+  .stat-item {
     flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  
-  .footer-links {
-    margin-top: 1rem;
+    align-items: flex-start;
+    gap: 4px;
   }
 }

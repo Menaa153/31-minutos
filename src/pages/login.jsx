@@ -6,7 +6,6 @@ import logo31 from '../assets/logo.png';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
 
@@ -15,6 +14,7 @@ const Login = () => {
     navigate('/admin');
   };
   
+
   return (
     <div className="login-container-31">
       <div className="login-header-31">
@@ -48,19 +48,6 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
             />
-
-            { /* lo dejamos?????*/}
-            <a href="#" className="forgot-password">¿Olvidaste tu contraseña?</a>
-          </div>
-           { /* lo dejamos?????*/}
-          <div className="remember-me">
-            <input 
-              type="checkbox" 
-              id="rememberMe"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-            />
-            <label htmlFor="rememberMe">Recordarme</label>
           </div>
           
           <button type="submit" className="btn-login-31" onClick={handleLogin}>
@@ -68,7 +55,13 @@ const Login = () => {
           </button>
         </form>
 
-        <a href="#" className="back-to-home">Volver al inicio</a>
+        <a
+          className="back-to-home"
+          onClick={() => navigate('/')}
+          type="button"
+        >
+          Volver al inicio
+        </a>
       </div>
     </div>
   );

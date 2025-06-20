@@ -48,6 +48,8 @@ export default function AdminPanel() {
       </header>
 
       <main className="admin-main">
+
+
         {activeTab === 'Noticias' && (
           <section className="panel-section">
             <h2>Gestión de Noticias</h2>
@@ -61,7 +63,6 @@ export default function AdminPanel() {
                     <option value="Nota Verde">Nota Verde</option>
                     <option value="Horóscopo">Horóscopo</option>
                     <option value="Deportes">Deportes</option>
-                    <option value="Cultura">Cultura</option>
                   </select>
                   <select value={selectedReporter} onChange={(e) => setSelectedReporter(e.target.value)} required>
                     <option value="">Selecciona un reportero</option>
@@ -92,12 +93,12 @@ export default function AdminPanel() {
                 <div className="stat-item"><span>Total de noticias:</span><strong>24</strong></div>
                 <div className="stat-item"><span>Noticias esta semana:</span><strong>6</strong></div>
                 <div className="stat-item"><span>Noticia más popular:</span><strong>42 likes</strong></div>
-                <div className="stat-item"><span>Categoría más vista:</span><strong>Nota Verde</strong></div>
-                <button className="report-button">Ver informe completo</button>
               </div>
             </div>
           </section>
         )}
+
+
 
         {activeTab === 'Reporteros' && (
           <section className="panel-section">
@@ -125,15 +126,6 @@ export default function AdminPanel() {
                 </ul>
                 <a href="#" className="view-all">Ver todos los reporteros</a>
               </div>
-
-              <div className="panel-card stats-card">
-                <h3>Rendimiento</h3>
-                <div className="stat-item"><span>Reportero más activo:</span><strong>Juan Carlos Bodoque</strong></div>
-                <div className="stat-item"><span>Noticias publicadas</span><strong>8 esta semana</strong></div>
-                <div className="stat-item"><span>Reportero más popular</span><strong>Tulio Triviño</strong></div>
-                <div className="stat-item"><span>Nuevos reporteros</span><strong>2 este mes</strong></div>
-                <button className="report-button">Ver informe completo</button>
-              </div>
             </div>
           </section>
         )}
@@ -156,9 +148,9 @@ export default function AdminPanel() {
 
                 <h4 style={{ marginTop: '2rem' }}>Usuarios Actuales</h4>
                 <ul className="news-list">
-                  <li><strong>tulio@31minutos.cl</strong><br/><span className="news-meta">Administrador</span><span style={{ float: 'right', color: '#e30613', cursor: 'pointer' }}>Editar</span></li>
-                  <li><strong>bodoque@31minutos.cl</strong><br/><span className="news-meta">Editor</span><span style={{ float: 'right', color: '#e30613', cursor: 'pointer' }}>Editar</span></li>
-                  <li><strong>juanin@31minutos.cl</strong><br/><span className="news-meta">Reportero</span><span style={{ float: 'right', color: '#e30613', cursor: 'pointer' }}>Editar</span></li>
+                  <li><strong>tulio@31minutos.cl</strong><br/><span className="news-meta">Administrador</span><span className='erase-button'>Eliminar</span></li>
+                  <li><strong>bodoque@31minutos.cl</strong><br/><span className="news-meta">Editor</span><span className='erase-button'>Eliminar</span></li>
+                  <li><strong>juanin@31minutos.cl</strong><br/><span className="news-meta">Reportero</span><span className='erase-button'>Eliminar</span></li>
                 </ul>
               </div>
             </div>
