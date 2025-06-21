@@ -163,6 +163,7 @@ export default function Horoscopo() {
           </div>*/}
         </div> 
       </section>
+      
       <section className='horoscopo-mensaje'>
         <div className='horoscopo-mensaje-poli'>
           <div className='horoscopo-mensaje-poli-img-fondo-perfil'></div>

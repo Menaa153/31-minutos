@@ -21,40 +21,52 @@ export default function Home() {
 
   const navigate = useNavigate();
 
+  //referencia contenedor y botones de desplazamiento 
   const sliderRef = useRef(null);
   const prevBtnRef = useRef(null);
   const nextBtnRef = useRef(null);
 
 useEffect(() => {
+
   const sliderPrueba = sliderRef.current;
   const prevBtn = prevBtnRef.current;
   const nextBtn = nextBtnRef.current;
 
+  // si no hay referencia disponible salir del efecto
   if (!sliderPrueba || !prevBtn || !nextBtn) return;
 
   const totalDivs = sliderPrueba.querySelectorAll('.div-prueba').length;
 
-  // para slider, 3 div y mover 20px si la pantalla es mayor a 1100px
-  //mostrar 2 div y mover 50px si pantalla es menor que 1100px
-  // y mostrar 1 div y avanzar 100px si es menor a 768opx
+  //configuraciones iniciales de divs y desplzamiento 
   let divsToShow = 3;
   let moveAmount = 20;
 
-  if (window.innerWidth < 768) {
-    divsToShow = 1;
-    moveAmount = 100;
-  } else if (window.innerWidth < 1100) {
-    divsToShow = 2;
-    moveAmount = 50;
-  }
+  //condiciones para pantallas-ajustar divs y desplazamiento
+  const calculateSettings = () => {
+    if (window.innerWidth < 768) {
+      divsToShow = 1;
+      moveAmount = 100;
+    } else if (window.innerWidth < 1100) {
+      divsToShow = 2;
+      moveAmount = 50;
+    } else {
+      divsToShow = 3;
+      moveAmount = 20;
+    }
+  };
 
+  calculateSettings();
+
+  //indice de div actual visible
   let currentIndex = 0;
 
+  // actualizar posicion de slider
   function updateSliderPosition() {
     const offset = -(currentIndex * moveAmount);
     sliderPrueba.style.transform = `translateX(${offset}%)`;
   }
 
+  //boton de dar click atras
   const handlePrev = () => {
     if (currentIndex > 0) {
       currentIndex--;
@@ -64,6 +76,7 @@ useEffect(() => {
     updateSliderPosition();
   };
 
+  //boton de dar click adelante
   const handleNext = () => {
     if (currentIndex < totalDivs - divsToShow) {
       currentIndex++;
@@ -73,9 +86,29 @@ useEffect(() => {
     updateSliderPosition();
   };
 
+  // pa manejar casmbios de pantalla y actualizar slider
+  const handleResize = () => {
+    const oldDivsToShow = divsToShow;
+    const oldMoveAmount = moveAmount;
+    calculateSettings();
+
+    //si hay cambios en divstoshow o moveamount
+    if (oldDivsToShow !== divsToShow || oldMoveAmount !== moveAmount) {
+      if (currentIndex > totalDivs - divsToShow) {
+        currentIndex = totalDivs - divsToShow;
+      }
+      updateSliderPosition();
+    }
+  };
+
+  //eventos a los click en botones
   prevBtn.addEventListener('click', handlePrev);
   nextBtn.addEventListener('click', handleNext);
 
+  //escuchar cambios en tamaño de pantalla
+  window.addEventListener('resize', handleResize);
+
+  //transicion automatica cada 5s
   const intervalId = setInterval(() => {
     handleNext();
   }, 5000);
@@ -85,11 +118,14 @@ useEffect(() => {
   return () => {
     prevBtn.removeEventListener('click', handlePrev);
     nextBtn.removeEventListener('click', handleNext);
+    window.removeEventListener('resize', handleResize);
     clearInterval(intervalId);
   };
 }, []);
 
 
+  // click de botones que dirigen a otra pagina, y que empiece
+  //al inicio de la pagina
   const handleReporterosClick = () => {
     window.scrollTo(0, 0);
     navigate('/reporteros');
@@ -120,6 +156,7 @@ useEffect(() => {
     navigate('/entrevistas-locas');
   };
 
+  //auto scroll al dar en un boton que lo lleva a otra seccion mas abajo
   const handleScrollToNoticias = () => {
     const section = document.getElementById('ultimas');
     if (section) {
@@ -137,8 +174,9 @@ useEffect(() => {
       autor: 'Tulio Triviño',
     }
 
-    ];
+  ];
 
+  //para modales y mostrar noticas completas
   const [selectedNoticia, setSelectedNoticia] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -152,9 +190,10 @@ useEffect(() => {
     setShowModal(false);
   };
 
+  //pagina
   return (
     <div className="home">
-      {/* HERO SECTION */}
+      {/* header de home */}
       <section className="hero">
         <img src={logo} alt="Logo 31" className="logo-img" />
         <div className="hero-content">
@@ -168,7 +207,7 @@ useEffect(() => {
           </div>
         </div>
       </section>
-      {/* NOTICIA DESTACADA */}
+      {/* noticia destacada */}
       <section className="destacada">
         <h2 className='seccions-h'>Noticia Destacada</h2>
         <div className="card">
@@ -192,7 +231,7 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* ÚLTIMAS NOTICIAS */}
+      {/* ultimas noticias */}
       <h2 className='seccions-h' id='ultimas'>Últimas Noticias</h2>
       <section className="ultimas">
         <div className="news-grid">
@@ -224,41 +263,40 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* SECCIONES ESPECIALES */}
+      {/* secciones especiales - slider */}
       <h2 className='seccions-h'>Secciones Especiales</h2>
       <section className="slider-container">
         <div className="slider-prueba" ref={sliderRef}>
           <div className="div-prueba">
             <button onClick={handleDeportesClick} className='div-prueba-deportes'>
-              <p className='div-prueba-deportes-centro'>Las últimas novedades sobre los deportistas más extravagantes</p>
-              <p className='div-prueba-deportes-p'>Deportes</p>
+              <p className='div-prueba-centro'>Las últimas novedades sobre los deportistas más extravagantes</p>
+              <p className='div-prueba-p'>Deportes</p>
             </button>
             {/*<div className='div-prueba-deportes2'></div>*/}
           </div>
           <div className="div-prueba">
             <button onClick={handleNotaVerdeClick} className='div-prueba-notaverde'>
-              <p className='div-prueba-deportes-centro'>Nota verde, donde cuidamos el medio ambiente</p>
-              <p className='div-prueba-deportes-p'>Nota Verde</p>
+              <p className='div-prueba-centro'>Nota verde, donde cuidamos el medio ambiente</p>
+              <p className='div-prueba-p'>Nota Verde</p>
             </button>
           </div>
           <div className="div-prueba">
             <button onClick={handleHoroscopoClick} className='div-prueba-horoscopo'>
-              <p className='div-prueba-deportes-centro'>Las predicciones astrologicas mas disparatadas y divertidas de la semana, 
-                por Policarpio Avendaño.</p>
-              <p className='div-prueba-deportes-p'>Horoscopo</p>
+              <p className='div-prueba-centro'>Las predicciones astrologicas mas disparatadas y divertidas del dia.</p>
+              <p className='div-prueba-p'>Horoscopo</p>
             </button>
           </div>
           <div className="div-prueba">
             <button onClick={handleTulioRespondeClick} className='div-prueba-tulioresponde'>
-              <p className='div-prueba-deportes-centro'>Envía tus preguntas para que Tulio te responda.</p>
-              <p className='div-prueba-deportes-p'>Tulio Responde</p>
+              <p className='div-prueba-centro'>Envía tus preguntas para que Tulio te responda.</p>
+              <p className='div-prueba-p'>Tulio Responde</p>
             </button>
           </div>
           <div className="div-prueba">
             <button onClick={handleEntrevistasLocasClick} className='div-prueba-entrevistas'>
-              <p className='div-prueba-deportes-centro'>A veces nuestros reporteros le preguntan a las personas qué opinan sobre diferentes temas. 
-                Aquí tenemos una recopilación de las mejores respuestas.</p>
-              <p className='div-prueba-deportes-p'>Entrevistas Locas</p>
+              <p className='div-prueba-centro'>Una recopilación de respuestas que ni Nostradamus
+                hubiera predicho.</p>
+              <p className='div-prueba-p'>Entrevistas Locas</p>
             </button>
           </div>
         </div>
@@ -275,22 +313,19 @@ useEffect(() => {
         </div>
       </section>
 
-
-    {showModal && selectedNoticia && (
-      <div className="modal-overlay" onClick={closeModal}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <h2>{selectedNoticia.title}</h2>
-          <p className="modal-category">{selectedNoticia.category}, {selectedNoticia.date}</p>
-          <p className="modal-description">{selectedNoticia.description}</p>
-          <p className="modal-author">{selectedNoticia.autor}</p>
-          <button className="close-modal-btn" onClick={closeModal}>Cerrar</button>
+      {/* modales pa ver descripcion completa de noticas */}
+      {showModal && selectedNoticia && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>{selectedNoticia.title}</h2>
+            <p className="modal-category">{selectedNoticia.category}, {selectedNoticia.date}</p>
+            <p className="modal-description">{selectedNoticia.description}</p>
+            <p className="modal-author">{selectedNoticia.autor}</p>
+            <button className="close-modal-btn" onClick={closeModal}>Cerrar</button>
+          </div>
         </div>
-      </div>
-    )}
-
+      )}
 
     </div>
-
-    
   );
 }

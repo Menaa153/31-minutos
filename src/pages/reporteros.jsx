@@ -52,7 +52,7 @@ export default function Reporteros() {
             el noticiero más innecesario de la Televisión.</p>
       </div>
       <div className="reporteros">
-        {reporteros.map(({ id, nombre, edad, bio, foto }) => (
+        {reporteros.map(({ id, nombre, bio, foto }) => (
           <div key={id} className="reportero-card">
             <div className="foto">
               <img src={foto} alt={`Foto de ${nombre}`} />
