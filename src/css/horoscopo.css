@@ -70,14 +70,14 @@
 
 
 .horoscopo-mensaje-poli-img-fondo-perfil {
-  background-image: url('/public/reporteros/policarpo/Policarpo1.Jpg'); /* o usa Tulio si usas módulos */
+  background-image: url('/public/reporteros/policarpo/Policarpo1.Jpg');
   background-size: cover;
   background-position: center;
   margin-right: 30px;
   margin-left: 5px;
-  width: 200px;     /* o el tamaño que quieras para la "foto de perfil" */
+  width: 200px;
   height: 200px;
-  border-radius: 50%; /* para que sea redonda */
+  border-radius: 50%;
 }
 
 .horoscopo-title-msm-poli{
@@ -163,8 +163,6 @@
   margin: 0;
 }
 
-
-
 .horoscopo-descripcion{
   border: 0px solid #94ccab;
   font-family: 'Noto Sans KR', sans-serif;
@@ -191,6 +189,7 @@
   display: flex;
   flex-direction: column;
 }
+
  .horoscopo-descripcion-2-2{
   display: flex;
   flex-direction: column;

@@ -8,7 +8,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   
 
-    // Evita el scroll del fondo cuando el menú está abierto
+    // evita el scroll del fondo cuando el menu está abierto
     useEffect(() => {
       if (menuOpen) {
         document.body.style.overflow = 'hidden';
@@ -21,7 +21,7 @@ export default function Header() {
       };
     }, [menuOpen]);
 
-    // Cerrar menú al hacer clic en un enlace
+    // cerrar menu desplegable al hacer clic en un enlace
     const handleLinkClick = () => {
       setMenuOpen(false);
     };

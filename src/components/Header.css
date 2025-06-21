@@ -1,3 +1,6 @@
+
+/*estilos header*/
+
 .navbar {
   background-color: #ffffff;
   padding: 0.5rem 1rem;
@@ -20,7 +23,7 @@
   margin: 0;
 }
 
-/* Menú toggle visible solo en móvil */
+/*toggle visible en pantalla pequeña */
 .menu-toggle {
   justify-content: center;
   display: none;
@@ -30,7 +33,7 @@
   cursor: pointer;
 }
 
-/* Menú de navegación */
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -55,12 +58,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem; /* Espaciado horizontal */
+  padding: 0 1rem;
 }
 
 
 
-/* RESPONSIVE: colapsar menú en móvil */
+/* responisve*/
 @media (max-width: 768px) {
   .botones-header {
     width: 100%;
@@ -71,8 +74,8 @@
   }
 
   .nav-links {
-    position: absolute; /* o 'fixed' si quieres que quede siempre visible al hacer scroll */
-    top: 50px; /* ajusta según la altura de tu header */
+    position: absolute;
+    top: 50px;
     left: 0;
     right: 0;
     background-color: rgba(255, 255, 255, 0.7);
