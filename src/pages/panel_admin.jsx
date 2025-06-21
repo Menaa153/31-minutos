@@ -25,7 +25,7 @@ export default function AdminPanel() {
     setSelectedReporter('');
   };
 
-  const tabs = ['Noticias', 'Reporteros', 'Configuración'];
+  const tabs = ['Noticias', 'Reporteros'];
 
   return (
     <div className="admin-container">
@@ -108,12 +108,32 @@ export default function AdminPanel() {
                 <h3>Añadir Reportero</h3>
                 <form className="form">
                   <input type="text" placeholder="Nombre del reportero" />
-                  <input type="text" placeholder="Rol o especialidad" />
                   <textarea placeholder="Descripción breve del reportero"></textarea>
-                  <textarea placeholder="Biografía detallada"></textarea>
+                  <a>Selecciona la foto del reportero</a>
                   <input type="file" accept="image/*" />
-                  <button type="submit">Registrar Reportero</button>
                 </form>
+
+
+                <form className="form">
+  
+                  <select required>
+                    <option value="Editor">Editor</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Reportero">Reportero</option>
+                  </select>
+                  <a>Asigna las credenciales al reportero</a>
+                  <input type="email" placeholder="Correo electrónico" required />
+                  <input type="password" placeholder="Contraseña" required />
+                  <button type="submit">Añadir Usuario</button>
+                </form>
+
+                <h4 style={{ marginTop: '2rem' }}>Usuarios Actuales</h4>
+                <ul className="news-list">
+                  <li><strong>tulio@31minutos.cl</strong><br/><span className="news-meta">Administrador</span><span className='erase-button'>Eliminar</span></li>
+                  <li><strong>bodoque@31minutos.cl</strong><br/><span className="news-meta">Editor</span><span className='erase-button'>Eliminar</span></li>
+                  <li><strong>juanin@31minutos.cl</strong><br/><span className="news-meta">Reportero</span><span className='erase-button'>Eliminar</span></li>
+                </ul>
+    
               </div>
 
               <div className="panel-card">
@@ -130,32 +150,7 @@ export default function AdminPanel() {
           </section>
         )}
 
-        {activeTab === 'Configuración' && (
-          <section className="panel-section">
-            <h2>Gestión de Usuarios</h2>
-            <div className="panel-columns">
-              <div className="panel-card">
-                <h3>Administradores y permisos</h3>
-                <form className="form">
-                  <input type="email" placeholder="Correo electrónico" required />
-                  <select required>
-                    <option value="Editor">Editor</option>
-                    <option value="Administrador">Administrador</option>
-                    <option value="Reportero">Reportero</option>
-                  </select>
-                  <button type="submit">Añadir Usuario</button>
-                </form>
 
-                <h4 style={{ marginTop: '2rem' }}>Usuarios Actuales</h4>
-                <ul className="news-list">
-                  <li><strong>tulio@31minutos.cl</strong><br/><span className="news-meta">Administrador</span><span className='erase-button'>Eliminar</span></li>
-                  <li><strong>bodoque@31minutos.cl</strong><br/><span className="news-meta">Editor</span><span className='erase-button'>Eliminar</span></li>
-                  <li><strong>juanin@31minutos.cl</strong><br/><span className="news-meta">Reportero</span><span className='erase-button'>Eliminar</span></li>
-                </ul>
-              </div>
-            </div>
-          </section>
-        )}
       </main>
     </div>
   );
