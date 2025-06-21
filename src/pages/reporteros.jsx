@@ -2,6 +2,8 @@ import "../css/Reporteros.css";
 
 
 export default function Reporteros() {
+
+  //reporteros
   const reporteros = [
       {
         id: 1,
@@ -41,7 +43,6 @@ export default function Reporteros() {
         foto: "/public/reporteros/juanin juan harry/Juanin2.webp",
 
       },
-    // Agrega hasta 10 reporteros
   ];
 
   return (

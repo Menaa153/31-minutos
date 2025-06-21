@@ -14,76 +14,43 @@ import { GiCapricorn } from "react-icons/gi";
 import { GiAquarius } from "react-icons/gi";
 import { GiPisces } from "react-icons/gi";
 
-
 import { FaStarOfDavid } from "react-icons/fa";
-
+import { obtenerHoroscopos } from '../services/horoscopoApi';
 
 
 export default function Horoscopo() {
 
-
+  //pa consumir la api y traer los horoscopos
   const [horoscopos, setHoroscopos] = useState({});
-  const yaConsultado = useRef(false); // evita multiples llamadas
-  const [mensaje, setMensaje] = useState('Cargando horóscopo...');
-
-  const apiKey = 'AIzaSyBqFk1pIAbt1yCe7Hr-WWN-jYkvsCwlon0'; 
+  const [mensaje, setMensaje] = useState('Cargando horoscopo...');
+  const yaConsultado = useRef(false);
 
   useEffect(() => {
-    if (yaConsultado.current) return; // ya se hizo la llamada
+    if (yaConsultado.current) return;
     yaConsultado.current = true;
 
-    const obtenerHoroscopo = async () => {
+    const fetchHoroscopos = async () => {
       try {
-        const response = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              contents: [
-                {
-                  parts: [
-                    {
-                      text: `Dame el horóscopo de la semana para cada signo del zodiaco, en un tono breve y divertido. Devuélvelo en formato JSON con los nombres de los signos como claves. Ejemplo: {
-                        "Aries": "texto divertido",
-                        "Tauro": "texto divertido",
-                        ...
-                      }`,
-                    },
-                  ],
-                },
-              ],
-            }),
-          }
-        );
-
-        const data = await response.json();
-        console.log('respuesta completa de la API:', data);
-        const texto = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-        console.log('texto generado por la API:', texto);
-
-        //convertir a JSON
-        const jsonText = texto.trim();
-
-        //aislar el JSON válido
-        const start = jsonText.indexOf('{');
-        const end = jsonText.lastIndexOf('}');
-        const posibleJSON = jsonText.slice(start, end + 1);
-
-        const objetoHoroscopos = JSON.parse(posibleJSON);
-
-        setHoroscopos(objetoHoroscopos);
-      } catch (error) {
-        console.error('Error al obtener o procesar el horoscopo:', error);
-        setMensaje('Error al obtener el horscopo.');
+        const data = await obtenerHoroscopos();
+        setHoroscopos(data);
+      } catch {
+        setMensaje('Error al obtener el horoscopo.');
       }
     };
 
-    obtenerHoroscopo();
+    fetchHoroscopos();
   }, []);
 
+
+  //obtener dia mes y año actual
+  const fechaActual = new Date();
+  const fechaFormateada = new Intl.DateTimeFormat('es-CO', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(fechaActual);
+
+  //signos zodiacales
   const signosZodiaco = [
   {
     nombre: 'Aries',
@@ -155,7 +122,7 @@ export default function Horoscopo() {
           <p className='horoscopo-p2'> Las predicciones astrologicas mas disparatadas
             y divertidas de la semana,por Policarpio Avendaño.
           </p>
-          <p className='horoscopo-p3'>Actualizado: 9 de Mayo de 2025</p>
+          <p className='horoscopo-p3'>Actualizado: {fechaFormateada}</p>
           {/*}
           <div className='nota-verde-buttons'>
             <button className='nota-verde-buttons-a'>Ver Reportajes</button>
@@ -175,9 +142,8 @@ export default function Horoscopo() {
         </div>
       </section>
 
-      <p className='horoscopo-diarios'> Las predicciones para hoy,
-        9 de Mayo de 2025. Recuerda que las extrellas sugieren, pero 
-        tú decides. 
+      <p className='horoscopo-diarios'> Las predicciones para hoy, {fechaFormateada}. 
+        Recuerda que las extrellas sugieren, pero tú decides. 
       </p>
   
       <section className='section-horoscopos'>

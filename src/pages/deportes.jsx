@@ -6,6 +6,7 @@ import '../css/deportes.css';
 
 const Deportes = () => {
 
+  //noticia ejemplo
   const noticias = [
     {
       id: 1,
@@ -19,6 +20,7 @@ const Deportes = () => {
       hazaña: 'Con apenas 16 años, Valeria Gómez, atleta colombiana, rompió el récord nacional en los 400 metros planos con un tiempo de 51.98 segundos, superando una marca que llevaba 22 años intacta. Lo logró en el Torneo Sudamericano Juvenil en Lima, dejando claro que el futuro del atletismo ya está aquí.'
     }];
   
+    //para mostrar modal con noticia cokpleta
   const [selectedNoticia, setSelectedNoticia] = useState(null);
   const [showModal, setShowModal] = useState(false);
 

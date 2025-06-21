@@ -1,4 +1,6 @@
 
+/* estilos para pag tulio repsonde */
+
 .contenedor-tulio {
   position: relative;
   display: flex;
@@ -11,6 +13,7 @@
   border-radius: 5px;
   padding: 2rem;
 }
+
 .titulo-tulio {
   color: white;
   font-family: 'Noto Sans KR', sans-serif;
@@ -20,6 +23,7 @@
   gap: 10px;
   margin: 0;
 }
+
 .descripcion-tulio {
   color: white;
   font-family: 'Noto Sans KR', sans-serif;
@@ -29,10 +33,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .botones-tulio {
   display: flex;
   margin-top: 10px;
 }
+
 .boton-hacer-pregunta {
   background-color: #646463;
   color: white;
@@ -43,9 +49,11 @@
   border-radius: 3px;
   cursor: pointer;
 }
+
 .seccion-formulario-tulio {
   margin: 40px 50px 20px 50px;
 }
+
 .formulario-wrapper {
   background-color: rgba(255, 255, 255, 0.95);
   border: 1px solid #7c7a71;
@@ -53,16 +61,19 @@
   padding: 2rem;
   box-shadow: 7px 7px 10px rgba(148, 204, 171, 0.4);
 }
+
 .fila-formulario {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
 }
+
 .label-formulario {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+
 .input-wrapper input {
   width: 100%;
   padding: 0.6rem 1rem;
@@ -71,10 +82,12 @@
   border: 1px solid #7c7a71;
   border-radius: 4px;
 }
+
 .boton-enviar-container {
   display: flex;
   justify-content: flex-end;
 }
+
 .boton-enviar {
   background-color: #7c7a71;
   color: white;
@@ -85,6 +98,7 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
 .info-extra-tulio {
   margin: 30px 50px;
   font-family: 'Noto Sans KR', sans-serif;
@@ -92,6 +106,8 @@
   color: #333;
   line-height: 1.5;
 }
+
+/*pa que sea responsive*/
 
 @media (max-width: 768px) {
   .contenedor-tulio {

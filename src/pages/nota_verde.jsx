@@ -28,6 +28,7 @@ export default function NotaVerde() {
   }];
   
 
+  //autoscroll al dar click en el boton
   const handleScrollToNoticias = () => {
     const section = document.getElementById('reportajes');
     if (section) {

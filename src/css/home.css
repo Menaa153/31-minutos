@@ -13,7 +13,6 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-
 .hero {
   position: relative;
   display: flex;
@@ -26,6 +25,7 @@
   height: 300px;  
   overflow: hidden;
 }
+
 /* contenido encima de la imagen */
 .hero-content {
   position: relative;
@@ -55,6 +55,7 @@
   font-size: 2rem;
   font-weight: bold;
 }
+
 .textos-b {
   font-size: 1rem;
 }
@@ -362,7 +363,6 @@
 
 }
 
-
 .div-prueba-deportes {
   background-image: url('/fondos/deportes.jpg');
   background-size: cover;
@@ -380,7 +380,6 @@
   padding: 1rem;
   cursor: pointer;
 }
-
 
 .div-prueba-centro {
   color: white;
@@ -577,10 +576,11 @@
   .hero-buttons button{
     font-size: 0.7rem;
 }
-
+  .ultimas{
+    margin: 10px 20px;
+  }
   .card {
     flex-direction: column;
-    margin: 10px 20px;
     text-align: center;
   }
 
@@ -595,7 +595,6 @@
 
   .news-grid {
     grid-template-columns: 1fr;
-    margin: 10px 20px;
   }
 
   .card-utlimas {
