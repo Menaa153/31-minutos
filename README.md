@@ -2,15 +2,20 @@
 ![Logo de 31 Minutos](src/assets/logo.png) 
 ## _El noticiero que nadie pidió_  
 
-Para poder ver el proyecto:  
-Clonar el siguiente repositorio: gh repo clone Menaa153/31-minutos
+Esta es una pagina web que intenta replicar el noticiero 31 minutos, pero con un estilo moderno y mas actualizado. Este noticiero usara IA para poder generar noticias recientes en las diferentes secciones que hay, para ello, se usara la IA de Gemini 2.0 flash. 
 
 
-Abrir proyecto en su editor de codigo e installar npm install.
+Para poder ver el proyecto:
+Requesitos:  
+- Tener instalado Node.js
+- Un editor de codigo (vsc)
+- 
+Clonar el siguiente repositorio:  
+gh repo clone Menaa153/31-minutos
+
+
+Abrir proyecto en su editor de codigo e instalar npm y dependencias  
 En consola correr  
-
-
-instalar install <br>
 
 npm i
 
@@ -26,8 +31,6 @@ Autors - G18
 - Fransisco Micolta Vivas - fmicolta@unal.edu.co
 - Albeiro Burbano Tobar - aburbanot@unal.edu.co
 
--- Correcciones para segunda entrega  
-¿Cómo está planteado el apoyo de IA? ¿Qué IA se va a usar?  
-¿Qué información es válida para el login?
+
 
 
