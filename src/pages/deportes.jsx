@@ -1,4 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
+import { FaRegFutbol } from "react-icons/fa";
+import { LuLeaf } from "react-icons/lu";
+
 import '../css/deportes.css'; 
 
 const Deportes = () => {
@@ -11,6 +14,9 @@ const Deportes = () => {
       categoria: 'Futbol',
       fecha: '2025-06-06',
       autor: 'Tulio Triviño',
+    },
+    {
+      hazaña: 'Con apenas 16 años, Valeria Gómez, atleta colombiana, rompió el récord nacional en los 400 metros planos con un tiempo de 51.98 segundos, superando una marca que llevaba 22 años intacta. Lo logró en el Torneo Sudamericano Juvenil en Lima, dejando claro que el futuro del atletismo ya está aquí.'
     }];
   
   const [selectedNoticia, setSelectedNoticia] = useState(null);
@@ -30,7 +36,7 @@ const Deportes = () => {
 
       <section className='deportes'>
         <div className='deportes-header'>
-          <p className='deportes-p1'> Deportes</p>
+          <p className='deportes-p1'> <FaRegFutbol className='nt-vd-icono' /> Deportes</p>
           <p className='deportes-p2'> Las últimas novedades sobre los deportistas más extravagantes.
           </p>
           {/*<p className='deportes-p3'>Actualizado: 9 de Mayo de 2025</p>
@@ -62,8 +68,10 @@ const Deportes = () => {
             </div>))}
         </div>
       </section>
+
+      <h1 className='hazaña-semana-h1'>La hazaña de la semana</h1>
       <div className="hazaña-banner">
-        <h3>La hazaña de la semana</h3>
+        <p>{noticias[1].hazaña}</p>
       </div>
 
       {showModal && selectedNoticia && (

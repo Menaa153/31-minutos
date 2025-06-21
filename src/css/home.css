@@ -389,7 +389,7 @@
 
 
 .div-prueba-deportes {
-  background-image: url('/fondos/deportes2.jpg');
+  background-image: url('/fondos/deportes.jpg');
   background-size: cover;
   background-position: center;
   width: 95%;
@@ -436,7 +436,7 @@
 
 
 .div-prueba-horoscopo{
-  background-image: url('/fondos/horoscopo.webp');
+  background-image: url('/fondos/horoscopo.jpg');
   background-size: cover;
   background-position: center;
   width: 95%;
@@ -464,7 +464,7 @@
 
 
 .div-prueba-notaverde {
-  background-image: url('/fondos/nota-verde.jpeg');
+  background-image: url('/fondos/nota verde.jpg');
   background-size: cover;
   background-position: center;
   width: 95%;
@@ -494,7 +494,7 @@
 
 
 .div-prueba-tulioresponde{
-  background-image: url('/fondos/tulioresponde2.jpg');
+  background-image: url('/fondos/tulio responde.jpg');
   background-size: cover;
   background-position: center;
   width: 95%;
@@ -512,7 +512,7 @@
 }
 
 .div-prueba-entrevistas{
-  background-image: url('/fondos/entrevistaslocas2.jpg');
+  background-image: url('/fondos/entrevistas.jpg');
   background-size: cover;
   background-position: center;
   width: 95%;

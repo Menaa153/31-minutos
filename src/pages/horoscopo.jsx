@@ -15,6 +15,7 @@ import { GiAquarius } from "react-icons/gi";
 import { GiPisces } from "react-icons/gi";
 
 
+import { FaStarOfDavid } from "react-icons/fa";
 
 
 
@@ -150,7 +151,7 @@ export default function Horoscopo() {
     <div>
       <section className='horoscopo'>
         <div className='horoscopo-header'>
-          <p className='horoscopo-p1'> Horoscopo semanal</p>
+          <p className='horoscopo-p1'> <FaStarOfDavid className='nt-vd-icono' /> Horoscopo semanal</p>
           <p className='horoscopo-p2'> Las predicciones astrologicas mas disparatadas
             y divertidas de la semana,por Policarpio Avendaño.
           </p>

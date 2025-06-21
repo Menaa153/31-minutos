@@ -250,8 +250,7 @@ useEffect(() => {
           </div>
           <div className="div-prueba">
             <button onClick={handleTulioRespondeClick} className='div-prueba-tulioresponde'>
-              <p className='div-prueba-deportes-centro'>Envía tus preguntas para que Tulio te responda. Las más interesantes
-                 y útiles podrán ser respondidas en nuestro próximo programa.</p>
+              <p className='div-prueba-deportes-centro'>Envía tus preguntas para que Tulio te responda.</p>
               <p className='div-prueba-deportes-p'>Tulio Responde</p>
             </button>
           </div>

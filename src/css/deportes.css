@@ -58,7 +58,7 @@
 
 
 
-.section-deportes{
+.section-deportes, .hazaña-semana-h1{
   margin: 20px 50px 20px 50px;
 }
 
@@ -146,6 +146,18 @@
   font-size: 1rem;
   color: white;
 }
+
+.hazaña-banner{
+  background-color: #a83232;
+  margin: 20px 50px;
+}
+
+.hazaña-banner p{
+  padding: 1.5rem 1.5rem;
+  color: white;
+  margin: 0;
+}
+
 
 
 .modal-overlay {
@@ -260,6 +272,11 @@
     align-items: start;
     gap: 10px;
   }
+
+  .hazaña-banner{
+    margin: 10px 20px;
+  }
+
 
     /* MODAL */
   .modal-content {

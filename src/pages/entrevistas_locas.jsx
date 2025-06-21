@@ -1,12 +1,14 @@
 import React from "react";
 import "../css/entrevistas_locas.css";
+import { PiMicrophoneStageFill } from "react-icons/pi";
+
 
 export default function EntrevistasLocas() {
   return (
     <div className="contenedor-entrevistas">
       <header className="encabezado-entrevistas">
         <div className="contenido-encabezado">
-          <h1 className="entrevistas-h1">Entrevistas Locas</h1>
+          <h1 className="entrevistas-h1"><PiMicrophoneStageFill className='nt-vd-icono-entre' />Entrevistas Locas</h1>
           <p className="entrevistas-p1">
             A veces nuestros reporteros le preguntan a las personas qué opinan sobre diferentes temas. Aquí tenemos una recopilación de las mejores respuestas.
           </p>
@@ -26,7 +28,7 @@ export default function EntrevistasLocas() {
 
           <div className="info-entrevista">
             <div className="etiqueta-fecha">
-              <span className="categoria">Entrevistas Locas</span>
+              {/*<span className="categoria">Entrevistas Locas</span>*/}
               <span className="fecha">12/05/2025</span>
             </div>
 
@@ -38,12 +40,12 @@ export default function EntrevistasLocas() {
             </p>
 
             <div className="autor-entrevista">
-              <div className="avatar">
+              {/*<div className="avatar">
                 <img
                   src="https://i0.wp.com/31minutosoficial.cl/wp-content/uploads/2014/01/thumb-policarpo2.png?w=640&ssl=1"
                   alt="Policarpo"
                 />
-              </div>
+              </div>*/}
               <span>Policarpo</span>
             </div>
           </div>
@@ -60,7 +62,7 @@ export default function EntrevistasLocas() {
 
           <div className="info-entrevista">
             <div className="etiqueta-fecha">
-              <span className="categoria">Entrevistas Locas</span>
+              {/*<span className="categoria">Entrevistas Locas</span>*/}
               <span className="fecha">10/05/2025</span>
             </div>
 
@@ -72,12 +74,12 @@ export default function EntrevistasLocas() {
             </p>
 
             <div className="autor-entrevista">
-              <div className="avatar">
+              {/*<div className="avatar">
                 <img
                   src="https://i0.wp.com/31minutosoficial.cl/wp-content/uploads/2014/02/thumb-patana.png?resize=300%2C300&ssl=1"
                   alt="Patana"
                 />
-              </div>
+              </div>*/}
               <span>Patana</span>
             </div>
           </div>
