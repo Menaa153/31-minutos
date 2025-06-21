@@ -1,63 +1,94 @@
-.navbar{
+.navbar {
   background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 15px;
-  margin-bottom: 0px;
-  /*
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;*/
+  padding: 0.5rem 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+
 }
 
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-.logo{
-  height:30px;
+.logo {
+  height: 30px;
   width: auto;
   display: block;
   cursor: pointer;
+  margin: 0;
 }
 
+/* Menú toggle visible solo en móvil */
+.menu-toggle {
+  justify-content: center;
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-.nav-links{
-  display:flex;
+/* Menú de navegación */
+.nav-links {
+  display: flex;
   align-items: center;
-  gap: 2rem;
-
+  gap: 1rem;
 }
 
-/*
-.login-link{
-  margin-left: 180px;
-}*/
-
-
-.nav-links a{
+.nav-links a {
   color: rgb(126, 126, 126);
   text-decoration: none;
-  padding:0.3rem 0;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 550;
   font-size: 0.8rem;
-  
 }
 
-
-/* Elimina el hover para el logo */
-.logo-link:hover {
-  background-color: transparent !important;
-  cursor: pointer; /* Puedes dejar el cursor pointer si quieres */
-}
-
-/* Mantén el hover para los demás links */
-.nav-links a:not(.logo-link):hover {
-  /*background-color: #6b6b6b;*/
-  color:rgb(68, 68, 68);
-}
-
-/* ✅ Estilo para link activo (página actual) */
+.nav-links a:hover,
 .nav-links a.active {
   color: rgb(68, 68, 68);
+}
+
+
+.botones-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem; /* Espaciado horizontal */
+}
+
+
+
+/* RESPONSIVE: colapsar menú en móvil */
+@media (max-width: 768px) {
+  .botones-header {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute; /* o 'fixed' si quieres que quede siempre visible al hacer scroll */
+    top: 50px; /* ajusta según la altura de tu header */
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.5rem 0;
+    width: 95%;
+    text-align: left;
+  }
 }

@@ -1,45 +1,5 @@
- /* Estilo general del contenedor */
-.horoscopo-container {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
-  color: #333;
-}
 
-/* Título principal */
-.horoscopo-container h1 {
-  text-align: center;
-  color: #8B008B;
-  margin-bottom: 30px;
-}
-
-/* Cada signo en una tarjeta */
-.signo-card {
-  background-color: #f9efff;
-  border-left: 6px solid #8B008B;
-  border-radius: 8px;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(139, 0, 139, 0.1);
-}
-
-/* Título de cada signo */
-.signo-card h2 {
-  margin: 0 0 8px 0;
-  color: #8B008B;
-}
-
-/* Texto de la predicción */
-.signo-card p {
-  margin: 0;
-  line-height: 1.6;
-}
-
-
-
-/* de aqui en adelante */
+/* estilos css para horoscopo */
 
 .horoscopo-header{
   position: relative;
@@ -110,7 +70,7 @@
 
 
 .horoscopo-mensaje-poli-img-fondo-perfil {
-  background-image: url('/public/reporteros/tulio/Tulio2.jpg'); /* o usa Tulio si usas módulos */
+  background-image: url('/public/reporteros/policarpo/Policarpo1.Jpg'); /* o usa Tulio si usas módulos */
   background-size: cover;
   background-position: center;
   margin-right: 30px;
@@ -142,11 +102,6 @@
   font-family: 'Noto Sans KR', sans-serif;
   color: #000000;
 }
-
-
-
-
-
 
 .section-horoscopos{
   margin: 20px 50px 20px 50px;
@@ -249,4 +204,61 @@
 .horoscopo-descripcion-2-p2 {
   margin: 0;
   color: rgb(122, 118, 118);
+}
+
+
+/* mediaqueries pa que sea responsive */
+@media (max-width: 768px) {
+
+  .horoscopo-header{
+    flex-direction: column;
+    align-items: start;
+    height: 240px;
+    margin: 10px 20px;
+  }
+
+  .horoscopo-p1{
+    font-size: 1.5rem;
+  }
+
+  .horoscopo-p2{
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .horoscopo-p3{
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.8rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .horoscopo-diarios, .section-horoscopos{
+    margin: 10px 20px;
+  }
+  
+  .horoscopo-mensaje-poli{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: auto;
+    border: 1px solid #c5a2e4;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin: 10px 20px;
+  }
+
+  .horoscopo-parent {
+    grid-template-columns: 1fr;
+  }
 }

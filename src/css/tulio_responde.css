@@ -1,9 +1,4 @@
-@font-face {
-  font-family: 'YD Gothic';
-  src: url('/fonts/YDGothic 160 Pro.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+
 .contenedor-tulio {
   position: relative;
   display: flex;
@@ -69,7 +64,7 @@
   margin-bottom: 0.5rem;
 }
 .input-wrapper input {
-  width: 95%;
+  width: 100%;
   padding: 0.6rem 1rem;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1rem;
@@ -96,4 +91,65 @@
   font-size: 1rem;
   color: #333;
   line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .contenedor-tulio {
+    height: 240px;
+    padding: 1.5rem;
+    margin: 10px 20px;
+  }
+
+  .titulo-tulio {
+    font-size: 1.6rem;
+    flex-wrap: wrap;
+  }
+
+  .descripcion-tulio {
+    font-size: 0.95rem;
+    width: 100%;
+  }
+
+  .botones-tulio {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .boton-hacer-pregunta {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.4rem;
+    width: 100%;
+  }
+
+  .seccion-formulario-tulio {
+    margin: 20px 20px 10px 20px;
+  }
+
+  .formulario-wrapper {
+    padding: 1.5rem;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .label-formulario {
+    font-size: 0.95rem;
+  }
+
+  .boton-enviar-container {
+    justify-content: center;
+  }
+
+  .boton-enviar {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .info-extra-tulio {
+    margin: 20px;
+    font-size: 0.95rem;
+  }
 }

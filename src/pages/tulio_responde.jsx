@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaCircleQuestion } from "react-icons/fa6";
+
 import "../css/tulio_responde.css";
 
 export default function TulioResponde() {
@@ -16,12 +18,12 @@ export default function TulioResponde() {
     <div>
       <section>
         <div className="contenedor-tulio">
-          <p className="titulo-tulio">Tulio Responde</p>
+          <p className="titulo-tulio"> <FaCircleQuestion className='nt-vd-icono' /> Tulio Responde</p>
           <p className="descripcion-tulio">
             Envía tus preguntas para que Tulio te responda. Las más interesantes y útiles podrán ser respondidas en nuestro próximo programa.
           </p>
           <div className="botones-tulio">
-            <button className="boton-hacer-pregunta">Hacer Pregunta</button>
+            {/*<button className="boton-hacer-pregunta">Hacer Pregunta</button>*/}
           </div>
         </div>
       </section>

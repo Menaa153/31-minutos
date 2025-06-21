@@ -1,92 +1,92 @@
-@font-face {
-  font-family: 'YD Gothic';
-  src: url('/fonts/YDGothic 160 Pro.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+
+/*estilos css para nota verde*/
+
+.nota-verde-clss {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  align-content: center;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-
-
 .nota-verde{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center     ;
-    height: 300px;
-    background: linear-gradient(to right, #437d5b, #94ccab);
-    margin: 20px 50px 20px 50px;
-    border-radius: 5px;
-    padding: 2rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center     ;
+  height: 300px;
+  background: linear-gradient(to right, #437d5b, #94ccab);
+  margin: 20px 50px 20px 50px;
+  border-radius: 5px;
+  padding: 2rem 2rem;
 }
 
 .nt-vd-icono{
-    color: white;
-    font-size: 2.2rem;
-
+  color: white;
+  font-size: 2.2rem;
 }
 
 .nota-verde-p1{
-    color: white;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 0px;
-    margin-top: 0px;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 
 }
 
 .nota-verde-p2{
-    color: white;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 1rem;
-    text-align: left;
-    width: 50%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  text-align: left;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .nota-verde-buttons{
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.nota-verde-buttons-header1, .nota-verde-buttons-header2{
+  background-color: #16a04a;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.7rem;
+  padding: 0.5rem 1.7rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
     
 }
 
-.nota-verde-buttons-a{
-    background-color: #16a04a;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 0.7rem;
-    padding: 0rem 1.8rem;
-    
-}
-
-.nota-verde-buttons-b{
-    background-color: #73a286;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 0.7rem;
+.nota-verde-buttons-header2{
+  background-color: #73a286;
 }
 
 .h2-reportajes{
-    margin: 40px 50px 20px 50px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 1.5rem;
+  margin: 40px 50px 20px 50px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.5rem;
 }
 
-
-
 .section-reportajes{
-    margin: 20px 50px 20px 50px;
+  margin: 20px 50px 20px 50px;
 }
 
 .parent {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
 }
 
 .div-reportajes{
@@ -100,15 +100,24 @@
   /*border-color: #94ccab;*/
 }
 
-
 .img-reportajes{
-
-  height: 150px;
+  height: 200px;
   border: 1px solid #94ccab;
   background: transparent;
-  border-radius: 0px;
-  padding: 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  padding: 0;
   
+}
+
+.img-reportajes-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .info-reportajes{
@@ -116,9 +125,7 @@
   border: 1px solid #94ccab;
   border-radius: 5px;
   padding: 0rem 1.5rem;
-  /*box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);  sombra hacia la derecha */
   box-shadow: 7px 7px 10px rgba(148, 204, 171, 0.4);
-
   font-family: 'Noto Sans KR', sans-serif;
   
 }
@@ -150,10 +157,14 @@
 }
 
 .info-reportajes-bt{
+  font-family: 'Noto Sans KR', sans-serif;
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
   background-color: #16a04a;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 .like-container-reportajes {
@@ -167,7 +178,7 @@
 .like-group-reportajes {
   display: flex;
   align-items: center;
-  gap: 10px; /* espacio entre botón e ícono */
+  gap: 10px;
 }
 
 .like-button-reportajes {
@@ -181,4 +192,145 @@
   font-size: 14px;
   font-weight: bold;
   color: #333;
+}
+
+.nota-verde-ultimomsm{
+  display: flex;
+  flex-direction: row;
+  margin: 20px 50px 20px 50px;
+  background-color: #437d5b;
+}
+
+.nota-verde-ultimomsm-div{
+  width: 50%;
+  text-align: justify;
+  margin: 10px 10px 10px 10px;
+}
+
+.nota-verde-ultimomsm-txt{
+  margin: 0;
+  padding: 1.5rem 1.5rem;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.nota-verde-ultimomsm-img{
+  width: 50%;
+  margin: 10px 10px 10px 10px;
+}
+
+.img-nota-verde-img{
+  width: 100%;
+  height: 300px;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close-modal-btn-nota-verde {
+  background-color: #079b49;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* mediaqueries para que sea respoonsive*/
+
+@media (max-width: 768px) {
+
+  .nota-verde{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center     ;
+    height: 240px;
+    margin: 10px 20px;
+  }
+
+  .nt-vd-icono{
+    color: white;
+    font-size: 1rem;
+  }
+
+  .nota-verde-p1{
+    font-size: 1.5rem;
+
+  }
+
+  .nota-verde-p2{
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+
+  }
+
+  .nota-verde-buttons-header1, .nota-verde-buttons-header2{
+    font-size: 0.5rem;
+    padding: 0.5rem 1.3rem;
+  }
+
+  .h2-reportajes{
+    margin: 10px 20px;
+    font-size: 1.5rem;
+  }
+
+  .section-reportajes{
+    margin: 10px 20px;
+  }
+
+  .parent {
+    grid-template-columns: 1fr;
+  }
+
+  .nota-verde-ultimomsm{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+  }
+
+  .nota-verde-ultimomsm-div{
+    margin: 0;
+    width: 100%;
+  }
+
+  .nota-verde-ultimomsm-img{
+    width: auto;
+    margin: 10px 10px 10px 10px;
+  }
+
+  .img-nota-verde-img{
+    width: 100%;
+    height: 300px;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-height: 85vh;
+  }
 }

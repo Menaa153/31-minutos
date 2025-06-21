@@ -14,7 +14,7 @@ export default function Reporteros() {
         id: 2,
         nombre: "Juan Carlos Bodoque",
         bio: "Reportero estrella, conocido por su sarcasmo e informes profundos como 'La Nota Verde'.",
-        foto: "/public/reporteros/juan carlos bodoque/Bodoque2.jpg",
+        foto: "/public/reporteros/bodoque/Bodoque2.jpg",
       },
       {
         id: 3,
