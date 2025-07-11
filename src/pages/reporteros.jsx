@@ -9,38 +9,38 @@ export default function Reporteros() {
         id: 1,
         nombre: "Tulio Triviño",
         bio: "Conductor principal de 31 Minutos. Vanidoso, despistado y encantador a su manera.",
-        foto: '/public/reporteros/tulio/Tulio2.jpg',
+        foto: '/public/reporteros/Tulio2.webp',
 
       },
       {
         id: 2,
         nombre: "Juan Carlos Bodoque",
         bio: "Reportero estrella, conocido por su sarcasmo e informes profundos como 'La Nota Verde'.",
-        foto: "/public/reporteros/bodoque/Bodoque2.jpg",
+        foto: "/public/reporteros/Juan2.webp",
       },
       {
         id: 3,
         nombre: "Policarpo Avendaño",
         bio: "Encargado de la sección de espectáculos. Amante del canto y el espectáculo.",
-        foto: "/public/reporteros/policarpo/Policarpo1.jpg",
+        foto: "/public/reporteros/Policarpo1.webp",
       },
       {
         id: 4,
         nombre: "Mario Hugo",
         bio: "Reportero amable y muy ingenuo. Siempre busca el lado tierno de las noticias.",
-        foto: "/public/reporteros/mario hugo/MarioHugo1.jpg",
+        foto: "/public/reporteros/Mario1.webp",
       },
       {
         id: 5,
         nombre: "Patana Tufillo Triviño",
         bio: "Sobrina de Tulio y joven reportera con una visión crítica y sensible.",
-        foto: "/public/reporteros/patana/Patana1.jpg",
+        foto: "/public/reporteros/Patana1.webp",
       },
       {
         id: 6,
         nombre: "Juanín Juan Harry",
         bio: "Productor general del noticiero. Nervioso pero dedicado, mantiene todo funcionando.",
-        foto: "/public/reporteros/juanin juan harry/Juanin2.webp",
+        foto: "/public/reporteros/Juanín2.webp",
 
       },
   ];
@@ -67,7 +67,6 @@ export default function Reporteros() {
           </div>
         ))}
       </div>
-
     </div>
   );
 }

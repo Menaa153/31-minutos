@@ -3,9 +3,9 @@ import '../css/nota_verde.css';
 import { LuLeaf } from "react-icons/lu";
 import like from '../assets/corazon.png';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import Tulio from '../assets/Tulio2.jpg';  
+import { obtenerVerdes } from '../services/ApisBackend';
 
 
 
@@ -17,15 +17,34 @@ export default function NotaVerde() {
     navigate('/reporteros');
   };
 
-  const noticias = [
-  {
-    id: 1,
-    title: 'Lionel Messi lidera histórica remontada del Inter Miami',
-    description: 'En un partido inolvidable, Lionel Messi marcó dos goles y dio una asistencia para que el Inter Miami venciera 4-3 al LA Galaxy, tras ir perdiendo 0-3 en el primer tiempo. Con esta actuación, Messi reafirma su influencia en la Major League Soccer.',
-    category: 'Deportes',
-    date: '2025-06-06',
-    autor: 'Juan Carlos Bodoque',
-  }];
+  const [, setNoticias] = useState([]);
+  const [noticiasAleatorias, setNoticiasAleatorias] = useState([]);
+
+  //para seleccionar n noticias al azar
+  const seleccionarNoticiasAleatorias = (lista, cantidad) => {
+    const copia = [...lista];
+    const resultado = [];
+    while (resultado.length < cantidad && copia.length > 0) {
+      const indice = Math.floor(Math.random() * copia.length);
+      resultado.push(copia.splice(indice, 1)[0]);
+    }
+    return resultado;
+  };
+
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      try {
+        const data = await obtenerVerdes();
+        setNoticias(data || []);
+        const seleccion = seleccionarNoticiasAleatorias(data, 6);
+        setNoticiasAleatorias(seleccion);
+      } catch (error) {
+        console.error('Error al cargar noticias:', error.message);
+      }
+    };
+
+    fetchNoticias();
+  }, []);
   
 
   //autoscroll al dar click en el boton
@@ -49,6 +68,12 @@ export default function NotaVerde() {
     setShowModal(false);
   };
 
+  const formatearFechaBonita = (fechaISO) => {
+    const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
+    return new Date(fechaISO).toLocaleDateString('es-CO', opciones);
+  };
+
+  
   return (
     <div>
 
@@ -69,32 +94,37 @@ export default function NotaVerde() {
       {/* noticias de nota verde */}
 
       <h2 className='h2-reportajes' id='reportajes'>Reportajes de Nota Verde</h2>
+      { noticiasAleatorias && (
       <section className='section-reportajes' >
         <div className="parent">
-          {[1,2,3,4,5,6].map((n) => (
-            <div key={n} className="div-reportajes">
-              <div className="img-reportajes">
-                <img src='/reporteros/bodoque/Bodoque5.jpg' className='img-reportajes-img' alt="Tulio Triviño" />
+          {noticiasAleatorias.map((noticias) => (
+            <div key={noticias.id} className="div-reportajes">
+              <div className="img-reportajes-verde">
+                <img
+                  src={`/${noticias.imagen_reportero || 'reporteros/default.jpg'}`}
+                  alt="reportero"
+                />
               </div>
                   <div className="info-reportajes">
-                    <p className='info-reportajes-titulo'>{noticias[0].title}</p>
-                    <span className="info-reportajes-categoria">{noticias[0].category}, </span>
-                    <span className="info-reportajes-fecha">{noticias[0].date}</span>
-                    <p className='info-reportajes-descripcion'>{noticias[0].description.split(" ").slice(0, 24).join(" ")}...</p>
+                    <p className='info-reportajes-titulo'>{noticias.titulo}</p>
+                    <span className="info-reportajes-categoria">{noticias.categoria_noticia}, </span>
+                    <span className="info-reportajes-fecha">{formatearFechaBonita(noticias.fecha_publicacion)}</span>
+                    <p className='info-reportajes-descripcion'>{noticias.texto_noticia.split(" ").slice(0, 24).join(" ")}...</p>
                     <div className='like-container-reportajes'>
-                      <p className='info-reportajes-autor'>{noticias[0].autor}</p>
+                      <p className='info-reportajes-autor'>{noticias.nombre_reportero}</p>
                       <div className="like-group-reportajes">
                         <button className="like-button-reportajes">
                           <img src={like} alt="like" className="like-img" />
                         </button>
-                        <span className='like-count'>15</span>
+                        <span className='like-count'>{noticias.like_count}</span>
                       </div>
-                </div>
-                <button className='info-reportajes-bt' onClick={() => openModal(noticias[0])}>Leer más</button>
+                  </div>
+                <button className='info-reportajes-bt' onClick={() => openModal(noticias)}>Leer más</button>
             </div>
         </div>))}
         </div>
       </section>
+      )}
 
       {/* banner al final de la pagina */}
       <div className='nota-verde-ultimomsm'>
@@ -114,13 +144,13 @@ export default function NotaVerde() {
         </div>
       </div>
 
-      {showModal && selectedNoticia && (
+      {showModal && selectedNoticia &&  (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>{selectedNoticia.title}</h2>
-            <p className="modal-category">{selectedNoticia.category}, {selectedNoticia.date}</p>
-            <p className="modal-description">{selectedNoticia.description}</p>
-            <p className="modal-author">{selectedNoticia.autor}</p>
+            <h2>{selectedNoticia.titulo}</h2>
+            <p className="modal-category">{selectedNoticia.categoria_noticia}, {selectedNoticia.fecha_publicacion}</p>
+            <p className="modal-description">{selectedNoticia.texto_noticia}</p>
+            <p className="modal-author">{selectedNoticia.nombre_reportero}</p>
             <button className="close-modal-btn-nota-verde" onClick={closeModal}>Cerrar</button>
           </div>
         </div>
