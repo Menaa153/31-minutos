@@ -11,8 +11,23 @@ export default function EntrevistasLocas() {
     const fetchEntrevistas = async () => {
       try {
         const data = await obtenerEntrevistas();
-        setIngeniosas(data.ingeniosas.slice(0, 3));
-        setExtravagantes(data.extravagantes.slice(0, 3));
+
+        // pa mezclar entrevistas
+        const mezclarArray = (array) => {
+          const copia = [...array];
+          for (let i = copia.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copia[i], copia[j]] = [copia[j], copia[i]];
+          }
+          return copia;
+        };
+
+        // escoger 3 entrevistas al azar de cada tipo 
+        const ingeniosasAleatorias = mezclarArray(data.ingeniosas).slice(0, 3);
+        const extravagantesAleatorias = mezclarArray(data.extravagantes).slice(0, 3);
+
+        setIngeniosas(ingeniosasAleatorias);
+        setExtravagantes(extravagantesAleatorias);
       } catch (error) {
         console.error("Error al cargar entrevistas locas:", error.message);
       }
@@ -20,6 +35,7 @@ export default function EntrevistasLocas() {
 
     fetchEntrevistas();
   }, []);
+
 
   const formatearFechaBonita = (fechaISO) => {
     const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -45,7 +61,7 @@ export default function EntrevistasLocas() {
         {ingeniosas.map((entrevista, index) => (
           <div className="tarjeta-entrevista" key={index}>
             <div className="imagen-entrevista">
-              <img src={entrevista.imagen || "/reporteros/default.jpg"} alt={entrevista.autor} />
+            <img src={entrevista.imagen || "/reporteros/default.jpg"} alt={entrevista.autor} />
             </div>
             <div className="info-entrevista">
               <div className="etiqueta-fecha">

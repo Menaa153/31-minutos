@@ -5,10 +5,11 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { obtenerUltimas } from '../services/ApisBackend';
-import { obtenerDestacada } from '../services/ApisBackend';
+import { obtenerUltimas, obtenerDestacada, toggleLike, obtenerLikesUsuario } from '../services/ApisBackend';
+
 import logo from '../assets/logo.png';
 import like from '../assets/corazon.png';
+import likeFill from '../assets/corazon_relleno.png'; // imagen para cuando ya dio like
 import '../css/home.css';
 
 
@@ -162,6 +163,7 @@ useEffect(() => {
   const [, setNoticias] = useState([]);
   const [noticiasAleatorias, setNoticiasAleatorias] = useState([]);
   const [noticiaDestacada, setNoticiaDestacada] = useState(null);
+  const [likesDados, setLikesDados] = useState({}); //para manejar estado local de likes
 
   // Función para seleccionar N noticias al azar
   const seleccionarNoticiasAleatorias = (lista, cantidad) => {
@@ -181,6 +183,12 @@ useEffect(() => {
         setNoticias(data || []);
         const seleccion = seleccionarNoticiasAleatorias(data, 3);
         setNoticiasAleatorias(seleccion);
+
+        //cargar los likes dados por ip
+        const likesUsuario = await obtenerLikesUsuario();
+        const mapaLikes = {};
+        likesUsuario.forEach(id => { mapaLikes[id] = true });
+        setLikesDados(mapaLikes);
       } catch (error) {
         console.error('Error al cargar noticias:', error.message);
       }
@@ -222,6 +230,37 @@ useEffect(() => {
     const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
     return new Date(fechaISO).toLocaleDateString('es-CO', opciones);
   };
+
+  const manejarLike = async (idNoticia) => {
+    try {
+      const { liked } = await toggleLike(idNoticia);
+
+      //actualizar noticia destacada
+      if (noticiaDestacada && noticiaDestacada.id === idNoticia) {
+        setNoticiaDestacada(prev => ({
+          ...prev,
+          like_count: liked ? prev.like_count + 1 : Math.max(prev.like_count - 1, 0)
+        }));
+      }
+
+      //actualizar noticias aleatorias
+      setNoticiasAleatorias(prev =>
+        prev.map(n =>
+          n.id === idNoticia
+            ? { ...n, like_count: liked ? n.like_count + 1 : Math.max(n.like_count - 1, 0) }
+            : n
+        )
+      );
+
+      //marcar visualmente si esta likeado o no
+      setLikesDados(prev => ({ ...prev, [idNoticia]: liked }));
+    } catch (error) {
+      console.error('Error al hacer like:', error.message);
+    }
+  };
+
+
+  
   //pagina
   return (
     <div className="home">
@@ -261,9 +300,13 @@ useEffect(() => {
               <div className='botones'>
                 <button className='boton-noticias' onClick={() => openModal(noticiaDestacada)}>Leer más</button>
                 <div className='like-container'>
-                  <button className="like-button">
-                    <img src={like} alt="like" className="like-img" />
-                  </button>
+                      <button className="like-button-reportajes" onClick={() => manejarLike(noticiaDestacada.id)}>
+                        <img
+                          src={likesDados[noticiaDestacada.id] ? likeFill : like}
+                          alt="like"
+                          className="like-img"
+                        />
+                      </button>
                   <span className='like-count'>{noticiaDestacada.like_count}</span>
                 </div>
               </div>
@@ -282,7 +325,7 @@ useEffect(() => {
               <div key={noticias.id} className="card-utlimas">
                 <div className="img-placeholder-ultimas">
                   <img
-                    src={`/${noticias.imagen_reportero || 'reporteros/default.jpg'}`}
+                    src={`/${noticias.imagen_reportero || 'public/reporteros/logo.png'}`}
                     alt="reportero"
                   />
                 </div>
@@ -295,9 +338,13 @@ useEffect(() => {
                     <div className='like-container-ultimas'>
                       <p className='info-utlimas-autor'>{noticias.nombre_reportero}</p>
                       <div className="like-group">
-                        <button className="like-button-ultimas">
-                          <img src={like} alt="like" className="like-img" />
-                        </button>
+                      <button className="like-button-reportajes" onClick={() => manejarLike(noticias.id)}>
+                        <img
+                          src={likesDados[noticias.id] ? likeFill : like}
+                          alt="like"
+                          className="like-img"
+                        />
+                      </button>
                         <span className='like-count'>{noticias.like_count}</span>
                       </div>
                     </div>
@@ -366,7 +413,7 @@ useEffect(() => {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>{selectedNoticia.titulo}</h2>
-            <p className="modal-category">{selectedNoticia.categoria_noticia}, {selectedNoticia.fecha_publicacion}</p>
+            <p className="modal-category">{selectedNoticia.categoria_noticia}, {formatearFechaBonita(selectedNoticia.fecha_publicacion)}</p>
             <p className="modal-description">{selectedNoticia.texto_noticia}</p>
             <p className="modal-author">{selectedNoticia.nombre_reportero}</p>
             <button className="close-modal-btn" onClick={closeModal}>Cerrar</button>

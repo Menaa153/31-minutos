@@ -96,3 +96,41 @@ export const enviarPreguntaTulio = async ({ nombre, pregunta }) => {
     throw error;
   }
 };
+
+
+//para dar o quitar like a una noticia
+export const toggleLike = async (noticiaId) => {
+  try {
+    const response = await fetch(`${API_URL}/api/likes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ noticia_id: noticiaId }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Error al hacer toggle del like');
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error al enviar like:', error);
+    throw new Error('No se pudo procesar el like.');
+  }
+};
+
+
+
+//obtener likes actuales del usuaario(x ip)
+export const obtenerLikesUsuario = async () => {
+  try {
+    const response = await fetch(`${API_URL}/api/likes/mis-likes`);
+    const data = await response.json();
+    return data.likes || [];
+  } catch (error) {
+    console.error('Error al obtener likes del usuario:', error);
+    return [];
+  }
+};
