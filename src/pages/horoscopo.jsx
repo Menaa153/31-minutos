@@ -15,14 +15,14 @@ import { GiAquarius } from "react-icons/gi";
 import { GiPisces } from "react-icons/gi";
 
 import { FaStarOfDavid } from "react-icons/fa";
-import { obtenerHoroscopos } from '../services/horoscopoApi';
+import { obtenerHoroscopos } from '../services/ApisBackend';
 
 
 export default function Horoscopo() {
 
   //pa consumir la api y traer los horoscopos
   const [horoscopos, setHoroscopos] = useState({});
-  const [mensaje, setMensaje] = useState('Cargando horoscopo...');
+  const [mensaje, setMensaje] = useState();
   const yaConsultado = useRef(false);
 
   useEffect(() => {
@@ -113,6 +113,23 @@ export default function Horoscopo() {
     icono: <GiPisces size={50} color="#814bb0" />
   }];
 
+  //fubcion para generar compatibilidad al azar
+  function generarCompatibilidadAleatoria(signoActual, signos) {
+    const otrosSignos = signos
+      .map((s) => s.nombre)
+      .filter((nombre) => nombre !== signoActual);
+
+    // elegir dos distintos al azar
+    const compatibilidades = [];
+    while (compatibilidades.length < 2) {
+      const signoRandom = otrosSignos[Math.floor(Math.random() * otrosSignos.length)];
+      if (!compatibilidades.includes(signoRandom)) {
+        compatibilidades.push(signoRandom);
+      }
+    }
+    
+    return compatibilidades.join(', ');
+  }
 
   return (
     <div>
@@ -171,7 +188,10 @@ export default function Horoscopo() {
                 </div>
                 <div className='horoscopo-descripcion-2-2'>
                   <p className='horoscopo-descripcion-2-p1'>Compatibilidad:</p>
-                  <p className='horoscopo-descripcion-2-p2'>Escorpio, Piscis</p>
+                  <p className='horoscopo-descripcion-2-p2'>
+                    {generarCompatibilidadAleatoria(signo.nombre, signosZodiaco)}
+                  </p>
+
                 </div>  
               </div>  
             </div>
@@ -179,9 +199,5 @@ export default function Horoscopo() {
         </div>
       </section>
     </div>
- 
-  
-
   );
-
 }

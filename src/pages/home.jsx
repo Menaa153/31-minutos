@@ -1,23 +1,19 @@
 
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-
-import { useState } from 'react';
+import { obtenerUltimas, obtenerDestacada, toggleLike, obtenerLikesUsuario } from '../services/ApisBackend';
 
 import logo from '../assets/logo.png';
 import like from '../assets/corazon.png';
-import Tulio from '../assets/Tulio2.jpg';   
+import likeFill from '../assets/corazon_relleno.png'; // imagen para cuando ya dio like
 import '../css/home.css';
 
 
-
-
-
 export default function Home() {
-
 
   const navigate = useNavigate();
 
@@ -164,17 +160,57 @@ useEffect(() => {
     }
   };
 
-  const noticias = [
-    {
-      id: 1,
-      title: 'Lionel Messi lidera histórica remontada del Inter Miami',
-      description: 'En un partido inolvidable, Lionel Messi marcó dos goles y dio una asistencia para que el Inter Miami venciera 4-3 al LA Galaxy, tras ir perdiendo 0-3 en el primer tiempo. Con esta actuación, Messi reafirma su influencia en la Major League Soccer.',
-      category: 'Deportes',
-      date: '2025-06-06',
-      autor: 'Tulio Triviño',
-    }
+  const [, setNoticias] = useState([]);
+  const [noticiasAleatorias, setNoticiasAleatorias] = useState([]);
+  const [noticiaDestacada, setNoticiaDestacada] = useState(null);
+  const [likesDados, setLikesDados] = useState({}); //para manejar estado local de likes
 
-  ];
+  // Función para seleccionar N noticias al azar
+  const seleccionarNoticiasAleatorias = (lista, cantidad) => {
+    const copia = [...lista];
+    const resultado = [];
+    while (resultado.length < cantidad && copia.length > 0) {
+      const indice = Math.floor(Math.random() * copia.length);
+      resultado.push(copia.splice(indice, 1)[0]);
+    }
+    return resultado;
+  };
+
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      try {
+        const data = await obtenerUltimas();
+        setNoticias(data || []);
+        const seleccion = seleccionarNoticiasAleatorias(data, 3);
+        setNoticiasAleatorias(seleccion);
+
+        //cargar los likes dados por ip
+        const likesUsuario = await obtenerLikesUsuario();
+        const mapaLikes = {};
+        likesUsuario.forEach(id => { mapaLikes[id] = true });
+        setLikesDados(mapaLikes);
+      } catch (error) {
+        console.error('Error al cargar noticias:', error.message);
+      }
+    };
+
+    fetchNoticias();
+  }, []);
+
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      try {
+        const data = await obtenerDestacada();
+        setNoticias(data || []);
+        const [seleccionada] = seleccionarNoticiasAleatorias(data, 1); // Extrae la primera
+        setNoticiaDestacada(seleccionada);
+      } catch (error) {
+        console.error('Error al cargar noticias destacadas:', error.message);
+      }
+    };
+
+    fetchNoticias();
+  }, []);
 
   //para modales y mostrar noticas completas
   const [selectedNoticia, setSelectedNoticia] = useState(null);
@@ -190,6 +226,41 @@ useEffect(() => {
     setShowModal(false);
   };
 
+  const formatearFechaBonita = (fechaISO) => {
+    const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
+    return new Date(fechaISO).toLocaleDateString('es-CO', opciones);
+  };
+
+  const manejarLike = async (idNoticia) => {
+    try {
+      const { liked } = await toggleLike(idNoticia);
+
+      //actualizar noticia destacada
+      if (noticiaDestacada && noticiaDestacada.id === idNoticia) {
+        setNoticiaDestacada(prev => ({
+          ...prev,
+          like_count: liked ? prev.like_count + 1 : Math.max(prev.like_count - 1, 0)
+        }));
+      }
+
+      //actualizar noticias aleatorias
+      setNoticiasAleatorias(prev =>
+        prev.map(n =>
+          n.id === idNoticia
+            ? { ...n, like_count: liked ? n.like_count + 1 : Math.max(n.like_count - 1, 0) }
+            : n
+        )
+      );
+
+      //marcar visualmente si esta likeado o no
+      setLikesDados(prev => ({ ...prev, [idNoticia]: liked }));
+    } catch (error) {
+      console.error('Error al hacer like:', error.message);
+    }
+  };
+
+
+  
   //pagina
   return (
     <div className="home">
@@ -207,61 +278,85 @@ useEffect(() => {
           </div>
         </div>
       </section>
+
       {/* noticia destacada */}
-      <section className="destacada">
-        <h2 className='seccions-h'>Noticia Destacada</h2>
-        <div className="card">
-          <div className='noticia-destacada-perfil'></div>
-          <div className="info">
-            <span className="categoria-destacada">{noticias[0].category}, {noticias[0].date}</span>
-            {/*<span className="fecha">{noticias[0].date}</span><br />*/}
-            <span className='titulo'>{noticias[0].title}</span>
-            <span className='descripcion'>{noticias[0].description.split(" ").slice(0, 24).join(" ")}...</span>
-            <span className='autor'>{noticias[0].autor}</span>
-            <div className='botones'>
-              <button className='boton-noticias' onClick={() => openModal(noticias[0])}>Leer más</button>
-              <div className='like-container'>
-                <button className="like-button">
-                  <img src={like} alt="like" className="like-img" />
-                </button>
-                <span className='like-count'>15</span>
+      {noticiaDestacada && (
+        <section className="destacada">
+          <h2 className='seccions-h'>Noticia Destacada</h2>
+          <div className="card">
+            <div
+              className='noticia-destacada-perfil'
+              style={{
+                backgroundImage: `url(/${noticiaDestacada.imagen_reportero || 'reporteros/default.jpg'})`
+              }}
+            ></div>
+            <div className="info">
+              <span className="categoria-destacada">
+                {noticiaDestacada.categoria_noticia}, {formatearFechaBonita(noticiaDestacada.fecha_publicacion)}
+              </span>
+              <span className='titulo'>{noticiaDestacada.titulo}</span>
+              <span className='descripcion'>{noticiaDestacada.texto_noticia.split(" ").slice(0, 24).join(" ")}...</span>
+              <span className='autor'>{noticiaDestacada.nombre_reportero}</span>
+              <div className='botones'>
+                <button className='boton-noticias' onClick={() => openModal(noticiaDestacada)}>Leer más</button>
+                <div className='like-container'>
+                      <button className="like-button-reportajes" onClick={() => manejarLike(noticiaDestacada.id)}>
+                        <img
+                          src={likesDados[noticiaDestacada.id] ? likeFill : like}
+                          alt="like"
+                          className="like-img"
+                        />
+                      </button>
+                  <span className='like-count'>{noticiaDestacada.like_count}</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ultimas noticias */}
+      
       <h2 className='seccions-h' id='ultimas'>Últimas Noticias</h2>
-      <section className="ultimas">
-        <div className="news-grid">
-          {[1, 2, 3].map((n) => (
-            <div key={n} className="card-utlimas">
-              <div className="img-placeholder-ultimas">
-                <img src='/reporteros/bodoque/Bodoque5.jpg' className='img-foto-ultima-img' alt="Tulio Triviño" />
-              </div>
-                <div className="info-utlimas">
-                  <p className='info-utlimas-titulo'>{noticias[0].title}</p>
-                  <span className="info-utlimas-categoria">{noticias[0].category}, </span>
-                  <span className="info-utlimas-fecha">{noticias[0].date}</span>
-                  <p className='info-utlimas-descripcion'>{noticias[0].description.split(" ").slice(0, 24).join(" ")}...</p>
-                  <div className='like-container-ultimas'>
-                    <p className='info-utlimas-autor'>{noticias[0].autor}</p>
-                    <div className="like-group">
-                      <button className="like-button-ultimas">
-                        <img src={like} alt="like" className="like-img" />
-                      </button>
-                      <span className='like-count'>15</span>
-                    </div>
-                  </div>
-                  <button className='info-utlimas-bt' onClick={() => openModal(noticias[0])}>
-                    Leer más
-                  </button>
+      {setNoticiasAleatorias && (
+        <section className="ultimas">
+          <div className="news-grid">
+            {noticiasAleatorias.map((noticias) => (
+              <div key={noticias.id} className="card-utlimas">
+                <div className="img-placeholder-ultimas">
+                  <img
+                    src={`/${noticias.imagen_reportero || 'public/reporteros/logo.png'}`}
+                    alt="reportero"
+                  />
                 </div>
-            </div>
-          ))}
-        </div>
-      </section>
+                
+                  <div className="info-utlimas">
+                    <p className='info-utlimas-titulo'>{noticias.titulo}</p>
+                    <span className="info-utlimas-categoria">{noticias.categoria_noticia}, {formatearFechaBonita(noticias.fecha_publicacion)}</span>
+                    <span className="info-utlimas-fecha">{noticias.date}</span>
+                    <p className='info-utlimas-descripcion'>{noticias.texto_noticia.split(" ").slice(0, 24).join(" ")}...</p>
+                    <div className='like-container-ultimas'>
+                      <p className='info-utlimas-autor'>{noticias.nombre_reportero}</p>
+                      <div className="like-group">
+                      <button className="like-button-reportajes" onClick={() => manejarLike(noticias.id)}>
+                        <img
+                          src={likesDados[noticias.id] ? likeFill : like}
+                          alt="like"
+                          className="like-img"
+                        />
+                      </button>
+                        <span className='like-count'>{noticias.like_count}</span>
+                      </div>
+                    </div>
+                    <button className='info-utlimas-bt' onClick={() => openModal(noticias)}>
+                      Leer más
+                    </button>
+                  </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* secciones especiales - slider */}
       <h2 className='seccions-h'>Secciones Especiales</h2>
@@ -317,10 +412,10 @@ useEffect(() => {
       {showModal && selectedNoticia && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>{selectedNoticia.title}</h2>
-            <p className="modal-category">{selectedNoticia.category}, {selectedNoticia.date}</p>
-            <p className="modal-description">{selectedNoticia.description}</p>
-            <p className="modal-author">{selectedNoticia.autor}</p>
+            <h2>{selectedNoticia.titulo}</h2>
+            <p className="modal-category">{selectedNoticia.categoria_noticia}, {formatearFechaBonita(selectedNoticia.fecha_publicacion)}</p>
+            <p className="modal-description">{selectedNoticia.texto_noticia}</p>
+            <p className="modal-author">{selectedNoticia.nombre_reportero}</p>
             <button className="close-modal-btn" onClick={closeModal}>Cerrar</button>
           </div>
         </div>

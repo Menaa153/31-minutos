@@ -105,7 +105,6 @@
 }
 
 .noticia-destacada-perfil {
-  background-image: url('/public/reporteros/tulio/Tulio2.jpg');
   background-size: cover;
   background-position: center;
   margin-right: 30px;
@@ -240,19 +239,24 @@
 
 }
 
-.img-placeholder-ultimas{
-  height: 200px;
-  border: 1px solid #99b2ea;
-  background: transparent;
+.img-placeholder-ultimas {
+  width: 100%;
+  height: 230px;
+  border: 1px solid #94ccab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   border-radius: 5px;
-  
+  padding: 0;
+  background: transparent;
 }
 
-.img-foto-ultima-img{
-  width: 100%;
-  height: 200px;
+.img-placeholder-ultimas img{
+  width: 230px;
+  height: 230px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 0%;
 }
 
 .info-utlimas{
