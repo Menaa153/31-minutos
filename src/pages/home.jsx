@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { obtenerUltimas, obtenerDestacada, toggleLike, obtenerLikesUsuario } from '../services/ApisBackend';
+import { obtenerUltimas, obtenerDestacada, toggleLike, obtenerLikesUsuario,obtenerNoticiasPasantes  } from '../services/ApisBackend';
 
 import logo from '../assets/logo.png';
 import like from '../assets/corazon.png';
@@ -15,13 +15,16 @@ import '../css/home.css';
 
 export default function Home() {
 
+  const [noticiasPasantes, setNoticiasPasantes] = useState([]);
+
+
   const navigate = useNavigate();
 
   //referencia contenedor y botones de desplazamiento 
   const sliderRef = useRef(null);
   const prevBtnRef = useRef(null);
   const nextBtnRef = useRef(null);
-
+  
 useEffect(() => {
 
   const sliderPrueba = sliderRef.current;
@@ -71,6 +74,7 @@ useEffect(() => {
     }
     updateSliderPosition();
   };
+
 
   //boton de dar click adelante
   const handleNext = () => {
@@ -197,6 +201,19 @@ useEffect(() => {
     fetchNoticias();
   }, []);
 
+useEffect(() => {
+  obtenerNoticiasPasantes()
+    .then(data => {
+      const noticiasConImagen = data.map(n => ({
+        ...n,
+        imagen: obtenerImagenAleatoria()  // 🔥 asignar imagen aleatoria
+      }));
+      setNoticiasPasantes(noticiasConImagen);
+    })
+    .catch(err => console.error('Error al cargar noticias pasantes:', err));
+}, []);
+
+
   useEffect(() => {
     const fetchNoticias = async () => {
       try {
@@ -259,6 +276,20 @@ useEffect(() => {
     }
   };
 
+  const imagenesPasantes = [
+    '/pasantes/img1.webp',
+    '/pasantes/img2.webp',
+    '/pasantes/img3.webp',
+    '/pasantes/img4.webp',
+    '/pasantes/img5.webp',
+    '/pasantes/img6.webp',
+    '/pasantes/img7.webp',
+  ];
+
+  const obtenerImagenAleatoria = () => {
+    const index = Math.floor(Math.random() * imagenesPasantes.length);
+    return imagenesPasantes[index];
+  };
 
   
   //pagina
@@ -358,6 +389,36 @@ useEffect(() => {
         </section>
       )}
 
+       <h2 className='seccions-h'>Noticias Pasantes</h2>
+        <section className="ultimas">
+          <div className="news-grid">
+            {noticiasPasantes.map((noti) => (
+              <div key={noti.id} className="card-utlimas">
+                <div className="img-placeholder-ultimas">
+                <img src={noti.imagen} alt="reportero" />
+
+                </div>
+
+
+                <div className="info-utlimas">
+                  <p className='info-utlimas-titulo'>{noti.titulo}</p>
+                  <span className="info-utlimas-categoria">Pasante • {formatearFechaBonita(noti.fecha_creacion)}</span>
+                  <p className='info-utlimas-descripcion'>{noti.contenido.split(" ").slice(0, 24).join(" ")}...</p>
+                  <div className='like-container-ultimas'>
+                    <p className='info-utlimas-autor'>{noti.nombre_reportero}</p>
+                    
+                  </div>
+                </div>
+                  <button className='info-utlimas-bt' onClick={() => openModal(noti)}>
+                  Leer más
+                </button>
+              </div>
+            ))}
+            
+          </div>
+        </section>
+
+
       {/* secciones especiales - slider */}
       <h2 className='seccions-h'>Secciones Especiales</h2>
       <section className="slider-container">
@@ -409,17 +470,27 @@ useEffect(() => {
       </section>
 
       {/* modales pa ver descripcion completa de noticas */}
-      {showModal && selectedNoticia && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>{selectedNoticia.titulo}</h2>
-            <p className="modal-category">{selectedNoticia.categoria_noticia}, {formatearFechaBonita(selectedNoticia.fecha_publicacion)}</p>
-            <p className="modal-description">{selectedNoticia.texto_noticia}</p>
-            <p className="modal-author">{selectedNoticia.nombre_reportero}</p>
-            <button className="close-modal-btn" onClick={closeModal}>Cerrar</button>
-          </div>
-        </div>
-      )}
+{showModal && selectedNoticia && (
+  <div className="modal-overlay" onClick={closeModal}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <h2>{selectedNoticia.titulo}</h2>
+
+      {/* ✅ Fecha con fallback */}
+      <p className="modal-category">
+        {selectedNoticia.categoria_noticia || 'Pasante'},{" "}
+        {formatearFechaBonita(selectedNoticia.fecha_publicacion || selectedNoticia.fecha_creacion)}
+      </p>
+
+      <p className="modal-description">
+        {selectedNoticia.texto_noticia || selectedNoticia.contenido}
+      </p>
+
+      <p className="modal-author">{selectedNoticia.nombre_reportero}</p>
+      <button className="close-modal-btn" onClick={closeModal}>Cerrar</button>
+    </div>
+  </div>
+)}
+
 
     </div>
   );

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/login.css'; 
-import logo31 from '../assets/logo.png'; 
+import logo31 from '../assets/logo.png';
+import { loginUsuario } from '../services/ApisBackend';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -9,10 +11,24 @@ const Login = () => {
   const navigate = useNavigate();
 
 
-    const handleLogin = (e) => {
-    e.preventDefault();
+const handleLogin = async (e) => {
+  e.preventDefault();
+
+  try {
+    const usuario = await loginUsuario({ correo: email, contrasena: password });
+
+    console.log('Usuario autenticado:', usuario);
+
+    // Guardar usuario en localStorage
+    localStorage.setItem('usuario31', JSON.stringify(usuario));
+
+   
     navigate('/admin');
-  };
+  } catch (error) {
+    alert(error.message || 'Error al iniciar sesión');
+  }
+};
+
   
 
   return (
