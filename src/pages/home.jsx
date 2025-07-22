@@ -15,6 +15,29 @@ import '../css/home.css';
 
 export default function Home() {
 
+
+
+  //url del api que conecta el backend
+  const API_URL = import.meta.env.VITE_BACKEND_URL;
+
+  useEffect(() => {
+    const ejecutarGeneracionInicial = async () => {
+      try {
+        await Promise.all([
+          fetch(`${API_URL}/api/horoscopos`),
+          fetch(`${API_URL}/api/noticias/destacadas`),
+          fetch(`${API_URL}/api/noticias/ultimas`),
+          fetch(`${API_URL}/api/noticias/verde`),
+          fetch(`${API_URL}/api/noticias/deportes`)
+        ]);
+      } catch (error) {
+        console.error('Error al generar contenido inicial:', error);
+      }
+    };
+
+    ejecutarGeneracionInicial();
+  }, );
+
   const [noticiasPasantes, setNoticiasPasantes] = useState([]);
 
 
@@ -406,12 +429,22 @@ useEffect(() => {
                   <p className='info-utlimas-descripcion'>{noti.contenido.split(" ").slice(0, 24).join(" ")}...</p>
                   <div className='like-container-ultimas'>
                     <p className='info-utlimas-autor'>{noti.nombre_reportero}</p>
-                    
-                  </div>
-                </div>
+
+                    <div className="like-group">
+                      <button className="like-button-reportajes" onClick={() => manejarLike(noti.id)}>
+                        <img
+                          src={likesDados[noti.id] ? likeFill : like}
+                          alt="like"
+                          className="like-img"
+                        />
+                      </button>
+                      </div>
+                      </div>
                   <button className='info-utlimas-bt' onClick={() => openModal(noti)}>
-                  Leer más
-                </button>
+                    Leer más
+                  </button>
+                </div>
+
               </div>
             ))}
             
@@ -475,7 +508,6 @@ useEffect(() => {
     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
       <h2>{selectedNoticia.titulo}</h2>
 
-      {/* ✅ Fecha con fallback */}
       <p className="modal-category">
         {selectedNoticia.categoria_noticia || 'Pasante'},{" "}
         {formatearFechaBonita(selectedNoticia.fecha_publicacion || selectedNoticia.fecha_creacion)}

@@ -21,7 +21,7 @@
 .titulo-reporteros p {
   text-align: justify;
   font-size: 1.1rem;
-  color: rgb(148, 148, 148);
+  color: rgb(53, 53, 53);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -81,12 +81,12 @@
 
 .tipo-repo{
   font-size: 0.89rem;
-  color: rgb(148, 148, 148);
+  color: rgb(53, 53, 53);
 }
 
 .biografia-repo{
   font-size: 0.97rem;
-  color: rgb(148, 148, 148);
+  color: rgb(53, 53, 53);
 }
 
 .bt-ver-perfil{
